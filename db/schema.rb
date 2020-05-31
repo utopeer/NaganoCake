@@ -102,4 +102,5 @@ ActiveRecord::Schema.define(version: 2020_05_30_100758) do
     t.datetime "updated_at", null: false
   end
 
+
 end
