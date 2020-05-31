@@ -1,17 +1,10 @@
 class Admin::MembersController < ApplicationController
+  def index
+  end
 
-	
-    def index
-	end
+  def edit
+  end
 
-	def edit
-	end
-
-	def show
-	end
-
-	
-
-	def update
-	end
+  def show
+  end
 end
