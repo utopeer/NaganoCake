@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- root 'homes#top'
+ root 'public/homes#top'
 
   namespace :admin do
     devise_for :admins, controllers: {
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :members
     resources :orders
     resources :order_items, only:[:update]
-    get '/admins' => 'admin#top'
+    get '/admins' => 'admins#top'
   end
 
   namespace :public do
