@@ -1,0 +1,2 @@
+class Adomin < ApplicationRecord
+end
