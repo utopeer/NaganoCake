@@ -2,7 +2,11 @@ Rails.application.routes.draw do
  root 'homes#top'
 
   namespace :admin do
-    devise_for :admins
+    devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+    }
     resources :items
     resources :genres
     resources :members
@@ -12,7 +16,11 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    devise_for :members
+    devise_for :members, controllers: {
+    sessions:      'members/sessions',
+    passwords:     'members/passwords',
+    registrations: 'members/registrations'
+    }
     get '/about' => 'homes#about'
     resources :items, only:[:index,:show]
     resources :cart_items
