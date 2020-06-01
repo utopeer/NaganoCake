@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_044515) do
+ActiveRecord::Schema.define(version: 2020_06_01_065518) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_044515) do
     t.string "postal_code"
     t.string "address"
     t.integer "phone_number"
-    t.integer "withdrawal_status"
+    t.integer "withdrawal_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
