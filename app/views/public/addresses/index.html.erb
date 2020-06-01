@@ -1,2 +1,44 @@
-<h1>Public::Addresses#index</h1>
-<p>Find me in app/views/public/addresses/index.html.erb</p>
+<div class="container">
+	<h2>配送先登録/一覧</h2>
+    <p>郵便番号(ハイフンなし)
+        <input type="text" name="posy_code"></p>
+    </p>
+    <p>住所
+     <input type="text" name="address">
+ </p>
+ <p>宛名
+     <input type="text" name="name"></p>
+     <%= button_to "登録する",public_addresses_path,method: :patch ,class: "btn btn-success" %><br>
+
+     <table align="left" class="table table-bordered">
+        <tr>
+            <td>郵便番号</td>
+            <td>住所</td>
+            <td>宛名</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>1564641146</td>
+            <th>member.address</th>
+            <th>name</th>
+            <th>
+               <div style="display:inline-flex">
+                <%=button_to "編集する","#",method: :get , class: "btn btn-primary" %>
+                <!--id必要  edit_public_address_path-->
+                <%=button_to "削除する","#",method: :delete , class: "btn btn-danger" %>
+                <!-- pathにid必要 public_address_path-->
+            </div>
+        </th>
+         <tr>
+            <td>1564641146</td>
+            <th>member.address</th>
+            <th>name</th>
+            <th>
+               <div style="display:inline-flex">
+                <%=button_to "編集する","#",method: :get , class: "btn btn-primary" %>
+                <!--id必要  edit_public_address_path-->
+                <%=button_to "削除する","#",method: :delete , class: "btn btn-danger" %>
+                <!-- pathにid必要 public_address_path-->
+            </div>
+        </th>
+</div>
