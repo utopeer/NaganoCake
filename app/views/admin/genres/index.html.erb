@@ -1,2 +1,37 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-3">
+      <h3>ジャンル一覧・追加</h3>
+    </div>
+    <div class="col-xs-6">
+
+      <!-- ジャンル用form_forで記載する時削除 -->
+      <p style="margin: 80px 0 50px;">
+        ジャンル　<input type="text" name="item_name" size="10">　
+        <input type="radio" name="status" value="有効"> 有効　
+        <input type="radio" name="status" value="無効"> 無効
+        <button class="btn btn-primary pull-right">追加</button>
+      </p>
+      <!-- ジャンル一覧 -->
+      <table class = "table table-hover">
+      <thead>
+        <tr class="active">
+            <th>ジャンル</th>
+            <th>状態</th>
+            <th colspan="1"></th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td>ケーキ</td>
+            <td>有効</td>
+            <td><button class="btn btn-primary pull-right">編集する</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3"></div>
+
+  </div>
+</div>
