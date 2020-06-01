@@ -1,2 +1,22 @@
-<h1>Public::Members#edit</h1>
-<p>Find me in app/views/public/members/edit.html.erb</p>
+<div class="container">
+	<h2>登録情報編集</h2>
+    <p>名前　(姓)
+    <input type="text" name="first_name">
+    (名)
+    <input type="text" name="last_name">
+</p>
+    <p>フリナガ (セイ)
+     <input type="text" name="name_kana">
+     (メイ)
+     <input type="text" name="last_name_kana">
+ </p>
+    <p>メールアドレス
+     <input type="email" name="email"></p>
+     <p>住所
+     	<input type="text" name="address"></p>
+     	<p>電話番号(ハイフンなし)
+        <input type="text" name="phone_nuber"></p>
+    <%=button_to "編集内容を保存する",public_members_path,method: :patch , class: "btn btn-primary" %>
+    <%=button_to "退会する",public_members_withdrawal_path,method: :get , class: "btn btn-danger" %>
+ </div>
+</div>
