@@ -19,20 +19,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # def after_sign_out_path_for(resource)
-    #   case resource
-    #   when Admin
-    #   new_admin_admin_session_path
-    #   when Member
-    #   new_public_member_session_path
-    #   end
-    # end
 
-    def after_sign_out_path_for(resource_or_scope)
-      if resource_or_scope == :admin
+     def after_sign_out_path_for(resource)
+      if resource == :admin_admin
       new_admin_admin_session_path
       else
-      root_path
+      new_public_member_session_path
       end
     end
 
