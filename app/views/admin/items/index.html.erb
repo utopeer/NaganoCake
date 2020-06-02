@@ -19,13 +19,15 @@
       </tr>
     </thead>
     <tbody>
+      <% @items.each do |item| %>
       <tr>
-        <td>1</td>
-        <td>チーズケーキ</td>
-        <td>1100円</td>
-        <td>ケーキ</td>
-        <td>販売中</td>
+        <td><%= item.id %></td>
+        <td><%= item.item_name %></td>
+        <td><%= item.unit_price_without_tax %></td>
+        <td><%= item.genre.name %></td>
+        <td><%= item.sale_status %></td>
       </tr>
+      <% end %>
     </tbody>
   </table>
 
