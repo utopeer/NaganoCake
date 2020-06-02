@@ -1,2 +1,87 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+  <h1>注文履歴詳細</h1>
+	<table>
+	  <tr>
+        <th style="width:200px">購入者</th>
+        <td style="height:40px;">山田花子</td>
+      </tr>
+      <tr>
+        <th style="width:200px">配送先</th>
+        <td style="height:60px;">〒150-0041 東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階<br>山田 花子</td>
+      </tr>
+      <tr>
+        <th style="width:200px">支払い方法</th>
+        <td style="height:40px;">銀行振込</td>
+      </tr>
+      <tr>
+        <th style="width:200px">注文ステータス</th>
+        <td style="height:40px;"><div style="border-radius: 5px; width: 120px; border:1px solid; float:left;">　入金待ち　▼</div><div class="btn btn-primary btn-xs" style="float:left;">更新</div></td>
+      </tr>
+    </table>
+</div>
+</div>
+
+<div class="row" style="margin-top:40px;">
+<div class="col-xs-9">
+
+	  <table class="table">
+	  <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>注文ステータス</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td style="width:150px">洋梨のチーズタルト</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:100px">1</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
+        <td><div class="btn btn-primary btn-xs">更新</div></td>
+      </tr>
+      <tr>
+        <td style="width:150px">洋梨のチーズタルト</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:100px">1</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
+        <td><div class="btn btn-primary btn-xs">更新</div></td>
+      </tr>
+      <tr>
+        <td style="width:150px">洋梨のチーズタルト</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:100px">1</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
+        <td><div class="btn btn-primary btn-xs">更新</div></td>
+      </tr>
+      <tr>
+        <td style="width:150px">洋梨のチーズタルト</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:100px">1</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
+        <td><div class="btn btn-primary btn-xs">更新</div></td>
+      </tr>
+      <tr>
+        <td style="width:150px">洋梨のチーズタルト</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:100px">1</td>
+        <td style="width:100px">1,200</td>
+        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
+        <td><div class="btn btn-primary btn-xs">更新</div></td>
+      </tr>
+    </table>
+</div>
+<div class="col-xs-3">
+	<br><br><br><br><br><br><br>
+	<p>商品合計     7,150円</p>
+	<p>送料　　　    800円</p>
+	<p>請求金額合計　7,950円</p>
+</div>
+</div>
+</div>
