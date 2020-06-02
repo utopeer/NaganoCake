@@ -1,2 +1,14 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<div class="container">
+	<h2>配送先編集</h2>
+    <p>郵便番号(ハイフンなし)
+    <input type="text" name="post_code"></p>
+</p>
+    <p>住所
+     <input type="text" name="address"></p>
+ </p>
+    <p>宛名
+     <input type="text" name="name"></p>
+    <%=button_to "編集する","#",method: :patch , class: "btn btn-primary" %>
+    <!--public_addresses_path :idが必要-->
+ </div>
+</div>
