@@ -1,2 +1,32 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container">
+
+  <h2>商品一覧</h2>
+
+  <div style="text-align: right; margin-bottom: 15px; ">
+    <%= link_to new_admin_item_path do %>
+      <button type="button" class="btn btn-success btn-circle btn-lg" style="width: 50px; height: 50px; padding: 10px 16px; font-size: 18px;line-height: 1.33; border-radius: 25px; color: white; ">＋</button>
+    <% end %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr class="active"> <!-- active => 色をグレーに変更 -->
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>チーズケーキ</td>
+        <td>1100円</td>
+        <td>ケーキ</td>
+        <td>販売中</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

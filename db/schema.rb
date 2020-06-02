@@ -98,4 +98,13 @@ ActiveRecord::Schema.define(version: 2020_06_01_065518) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer "member_id"
+    t.string "shipping_address"
+    t.string "postal_code"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
