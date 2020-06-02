@@ -5,11 +5,15 @@
       <h2>ジャンル編集</h2>
 
       <!-- ジャンル用form_forで記載する時削除 -->
-      <p style="margin: 70px 0 30px;">
-        ジャンル　<input type="text" name="item_name" size="10">　
-        <input type="radio" name="status" value="有効"> 有効　
-        <input type="radio" name="status" value="無効"> 無効
-        <button class="btn btn-primary pull-right">変更を保存する</button>
-      </p>
+       <%= form_for @genre, url: admin_genre_path(@genre.id) do |f| %>
+        <div class="field row">
+          <lavel>ジャンル</lavel>
+          <%= f.text_field :name %>
+          <!-- ラジオボタンの記述 -->
+          <label><%= f.radio_button :valid_invalid_status, "有効" %> 有効 </label>
+          <label><%= f.radio_button :valid_invalid_status, "無効" %> 無効</label>　
+          <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+         </div>
+      <% end %>
   </div>
 </div>
