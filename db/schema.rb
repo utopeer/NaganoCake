@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_065518) do
+ActiveRecord::Schema.define(version: 2020_06_02_043805) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_065518) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.integer "valid_invalid_status"
+    t.integer "valid_invalid_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_065518) do
     t.integer "genre_id"
     t.string "item_name"
     t.integer "unit_price_without_tax"
-    t.integer "sale_status"
+    t.integer "sale_status", default: 0
     t.text "explanation"
     t.string "image_id"
     t.datetime "created_at", null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_065518) do
     t.integer "item_id"
     t.integer "items_tax_included_price"
     t.integer "number_of_items"
-    t.integer "maiking_status"
+    t.integer "maiking_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,16 +93,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_065518) do
     t.string "postal_code"
     t.string "name"
     t.integer "total_fee"
-    t.integer "order_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shipping_addresses", force: :cascade do |t|
-    t.integer "member_id"
-    t.string "shipping_address"
-    t.string "postal_code"
-    t.string "name"
+    t.integer "order_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
