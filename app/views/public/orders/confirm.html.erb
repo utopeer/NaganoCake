@@ -1,2 +1,59 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<div class="container">
+	<h1>注文情報確認</h1>
+	<!-- テーブル -->
+	<div class="row">
+		<div class="col-xs-6">
+			<table align="left" class="table table-bordered">
+				<tr>
+					<th>商品名</th>
+					<th>単価(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+				</tr>
+				<tbody>
+					<tr>
+						<th>商品画像が入る +　商品名</th>
+						<td>1,100</td>
+						<td>5</td>
+						<td>単価×数量</td>
+					</tr>
+					<tr>
+						<th>商品画像が入る +　商品名</th>
+						<td>1,100</td>
+						<td>5</td>
+						<td>単価×数量</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row">
+			<div class="col-xs-4">
+				<table class="table table-bordered">
+					<tr>
+						<th>送料</th>
+						<th>800</th>
+					</tr>
+					<tbody>
+						<tr>
+							<th>小計の合計</th>
+							<td>合計　+ 送料</td>
+						</tr>
+						<tr>
+							<th>小計の合計</th>
+							<td>合計　+ 送料</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- テーブル end -->
+	<p><strong>支払方法</strong> [前ページの方法を表示]</p><br>
+	<p><strong>お届け先</strong> [前ページのお届け先住所]</p><br>
+
+	<div class="text-center">
+		<button type="button" class="btn btn-success text-center">購入を確定する</button>
+	</div>
+
+</div>
+
