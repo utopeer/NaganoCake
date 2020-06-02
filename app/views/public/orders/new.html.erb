@@ -1,2 +1,26 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class="container">
+	<h2>注文情報入力</h2>
+	<h4>支払い方法</h4>
+   <div>
+	<input type="radio" name="gender" value="male" style="margin-bottom: 10px;">クレジットカード<br>
+    <input type="radio" name="gender" value="male" >銀行振込<br>
+  </div>
+    <h4>お届け先</h4>
+    <div>
+    <input type="radio" name="gender" value="male">ご自身の住所
+    -----------------------------------------名前<br><br>
+    <input type="radio" name="gender" value="male">登録済住所から選択<br><br>
+    <select name="Prefecture">
+  　 <option value="1">登録済住所1</option>
+  　 <option value="2">登録済住所1</option>
+　　</select><br><br>
+    <input type="radio" name="gender" value="male">新しいお届け先<br>
+    <p>郵便番号
+    <input type="text" name="post_code"></p>
+    <p>住所
+     <input type="text" name="adress"></p>
+    <p>宛先
+     <input type="text" name="name"></p>
+    <button type="button" class="but btn-primary">確認画面に進む</button>
+ </div>
+</div>
