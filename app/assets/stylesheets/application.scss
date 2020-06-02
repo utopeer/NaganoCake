@@ -16,6 +16,15 @@
  @import "bootstrap-sprockets";  /*ここを追加*/
  @import "bootstrap"; 
 
+
+header {
+ background-color: seagreen;
+}
  .navbar {
  border-radius :0px;
  }
+
+ .navbar-nav li {
+ font-size: 15px;
+ padding-top: 20px;
+}
