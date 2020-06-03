@@ -42,6 +42,8 @@ Genre.create!(
  ]
 )
 
+
+
 # 商品
 Item.create!(
  [
@@ -108,6 +110,23 @@ OrderItem.create!(
     items_tax_included_price: 50,
     number_of_items: 156,
     making_status: 0,
+	}
+]
+)
+
+
+CartItem.create!(
+[
+  {
+	member_id: "2",
+	item_id: "1",
+	number_of_items: "2",
+	},
+
+  {
+	member_id: "2",
+	item_id: "2",
+	number_of_items: "2",
 	}
 ]
 )
