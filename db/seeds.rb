@@ -83,10 +83,11 @@ Item.create!(
  ]
 )
 #注文
+9.times do |n|
 Order.create!(
 [
 	{
-	   member_id:1,
+	   member_id: "#{n+1}",
        postage: 800,
        payment_method: 0,
        address: "神奈川県横浜市中区山手町37",
@@ -97,6 +98,7 @@ Order.create!(
 	}
 ]
 )
+end
 
 OrderItem.create!(
 [
