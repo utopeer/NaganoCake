@@ -5,15 +5,16 @@
 	<table>
 	  <tr>
         <th style="width:200px">購入者</th>
-        <td style="height:40px;">山田花子</td>
+        <td style="height:40px;"><%= @order.member.last_name %> <%= @order.member.first_name %></td>
+
       </tr>
       <tr>
         <th style="width:200px">配送先</th>
-        <td style="height:60px;">〒150-0041 東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階<br>山田 花子</td>
+        <td style="height:60px;"><%= @order.name %><br><%= @order.member.last_name %> <%= @order.member.first_name %></td>
       </tr>
       <tr>
         <th style="width:200px">支払い方法</th>
-        <td style="height:40px;">銀行振込</td>
+        <td style="height:40px;"><%= @order.payment_method %></td>
       </tr>
       <tr>
         <th style="width:200px">注文ステータス</th>
@@ -35,46 +36,18 @@
         <th>注文ステータス</th>
         <th></th>
       </tr>
+      <%  @order_items.each do |f| %>
       <tr>
-        <td style="width:150px">洋梨のチーズタルト</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:100px">1</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
-        <td><div class="btn btn-primary btn-xs">更新</div></td>
+        <td style="width:150px"><%= f.item.item_name %></td>
+        <td style="width:100px"><%= f.items_tax_included_price %></td>
+        <td style="width:100px"><%= f.number_of_items %></td>
+        <td style="width:100px"><%= (f.items_tax_included_price*f.number_of_items) %> </td>
+         <%= form_for(f, url:admin_items_path,method: :update) do |f| %>
+        <td style="width:150px"><%= f.select :making_status,["着手不可","製作待ち","製作中","製作完了"] %></td>
+        <td><%= f.submit "更新" ,class:"btn btn-primary btn-xs" %></td>
+        <% end %>
       </tr>
-      <tr>
-        <td style="width:150px">洋梨のチーズタルト</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:100px">1</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
-        <td><div class="btn btn-primary btn-xs">更新</div></td>
-      </tr>
-      <tr>
-        <td style="width:150px">洋梨のチーズタルト</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:100px">1</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
-        <td><div class="btn btn-primary btn-xs">更新</div></td>
-      </tr>
-      <tr>
-        <td style="width:150px">洋梨のチーズタルト</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:100px">1</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
-        <td><div class="btn btn-primary btn-xs">更新</div></td>
-      </tr>
-      <tr>
-        <td style="width:150px">洋梨のチーズタルト</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:100px">1</td>
-        <td style="width:100px">1,200</td>
-        <td style="width:150px"><div style="border:1px solid">　　着手不可  　　▼</div></td>
-        <td><div class="btn btn-primary btn-xs">更新</div></td>
-      </tr>
+      <% end %>
     </table>
 </div>
 <div class="col-xs-3">
