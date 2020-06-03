@@ -82,3 +82,30 @@ Item.create!(
 	}
  ]
 )
+#注文
+Order.create!(
+[
+	{
+	   member_id:1,
+       postage: 800,
+       payment_method: 0,
+       address: "神奈川県横浜市中区山手町37",
+       postal_code: 2318651,
+       name: "東京都新宿区東新宿1丁目",
+       total_fee: 1245677895,
+       order_status: 0,
+	}
+]
+)
+
+OrderItem.create!(
+[
+	{
+    order_id:1,
+    item_id:1,
+    items_tax_included_price: 50,
+    number_of_items: 156,
+    making_status: 0,
+	}
+]
+)
