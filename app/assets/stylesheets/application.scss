@@ -29,10 +29,32 @@ header {
  padding-top: 20px;
 }
 
+
+#container{
+	height: 450px;
+	width: 550px;
+}
+
+.image1 {
+background-image: url(image1.jpg);
+}
+.image2 {
+background-image: url(image2.jpg);
+}
+.image3 {
+background-image: url(image3.jpg);
+}
+.image4 {
+background-image: url(image4.jpg);
+}
+.image5 {
+background-image: url(image5.jpg);
+
 input[type="email"] {
         width: 350px;
     }
 
 input[type="password"] {
         width: 350px;
+
 }
