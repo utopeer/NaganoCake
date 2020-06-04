@@ -50,11 +50,55 @@ background-image: url(image4.jpg);
 .image5 {
 background-image: url(image5.jpg);
 }
+
 input[type="email"] {
         width: 350px;
     }
 
 input[type="password"] {
         width: 350px;
+}
 
+.bg_top {
+  width:790px;
+  height:250px;
+  margin-top: 20px;
+  background-image: url(shop.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px 200px;
+}
+
+.bg-top2 {
+  margin: auto;
+  width: 50px;
+  height: 150px;
+  padding: 30px
+}
+
+.bg_top2 p {
+  font-size: 16px;
+  text-align: center;
+  line-height: 240%;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.font-text {
+  font-family: 'TsukuBRdGothic-Regular','ＭＳ 明朝', 'MS Mincho',sans-serif;
+}
+
+.navbar-nav  li  a:hover {
+  background-color: darkgreen;
+}
+
+.navbar-nav  li  a {
+  color: white;
+  font-weight: bold;
+}
+
+.wf-mplus1p { font-family: "M PLUS 1p"; }
+
+.recommendation-items {
+  float: left;
+  margin-right: 50px;
 }
