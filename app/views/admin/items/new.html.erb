@@ -27,7 +27,9 @@
       </div>
       <div class="field">
       <%= f.label :ジャンル %><br />
-      <%= f.select :genre_id, [["ケーキ", "1"], ["焼き菓子", "2"]] %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name %> 
+      <!-- f.collection_select(プロパティ名, オブジェクトの配列, value属性の項目, 表示テキストの項目) -->
+      <!-- Genre.allでジャンルのテーブル内情報を持ってきてる -->
       </div>
       <div class="field">
       <%= f.label :税抜価格 %><br />
