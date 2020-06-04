@@ -1,56 +1,22 @@
 <div class="container">
   <div class="row">
-  	<%= render "public/shared/sidebar" %>
 
-  	<div class="col-xs-9">
-  	  <h2>商品一覧<span style="font-size:14px;">（全X件）</span></h2>
-  	    <div class="row" style="margin-bottom:40px;">
-  	      <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-           <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  	    </div>
-  	    <div class="row" style="margin-bottom:40px;">
-  	      <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-           <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  		  <div class="box" style="width:190px; height:200px; background-color: yellow; float:left; margin-right:10px;">
-  		    <div style="width:190px; height:120px; background-color: red; float:left;"></div>
-            <p>商品名</p>
-            <p>¥0,000</p>
-  	      </div>
-  	    </div>
+    <!-- ジャンル検索（パーシャル） -->
+  	<%= render "public/shared/sidebar", genres: @genres %>
+    <!-- 商品一覧 -->
+    
+  	<div class="col-xs-8">
+  	  <h2>商品一覧<span style="font-size:20px;">（全<%= @quantity %>件）</span></h2> <!-- 全数の表示に@itemsを使用するとページネーションを使用しているため、ページ内の総数しか表示されないためコントローラで別に定義したインスタンス変数を使用 -->
   	    <div class="row">
-  	      <p style="text-align: center">⚫︎⚫︎⚫︎⚫︎⚫︎</p>
+  	      <% @items.each do |item| %>
+            <div class="box" style="float:left; margin-right:20px;">
+              <%= attachment_image_tag item, :image, size: "150x150",  fallback: "no_image.jpg"%><br>
+              <p><%= item.item_name %></p>
+              <p>¥<%= (item.unit_price_without_tax*1.1).floor %></p> <!-- 税込計算式/.floor => 浮動小数点数の切り捨てを行うためFloatクラスのfloorメソッドを使用 -->
+            </div>
+          <% end %>
   	    </div>
+        <div class="row"> <%= paginate @items %></div>
   	</div>
   </div>
 </div>
