@@ -28,6 +28,7 @@
       <div class="field">
       <%= f.label :ジャンル %><br />
       <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+
       </div>
       <div class="field">
       <%= f.label :税抜価格 %><br />
