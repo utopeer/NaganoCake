@@ -1,9 +1,9 @@
 <div class="container">
-<div class="row">
-<div class="col-xs-12">
-  <h1>注文履歴詳細</h1>
-	<table>
-	  <tr>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>注文履歴詳細</h1>
+      <table>
+       <tr>
         <th style="width:200px">購入者</th>
         <td style="height:40px;"><%= @order.member.last_name %> <%= @order.member.first_name %></td>
 
@@ -18,43 +18,49 @@
       </tr>
       <tr>
         <th style="width:200px">注文ステータス</th>
-        <td style="height:40px;"><div style="border-radius: 5px; width: 120px; border:1px solid; float:left;">　入金待ち　▼</div><div class="btn btn-primary btn-xs" style="float:left;">更新</div></td>
-      </tr>
-    </table>
-</div>
-</div>
+        <td style="height:40px;">
+          <%= form_for @order, url: admin_order_path do |f| %>
+          　<%= f.select :order_status,["入金待ち","入金確認","製作中","発送準備中","発送済"] ,style: "margin-top:10px;#" %>
+          <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-<div class="row" style="margin-top:40px;">
-<div class="col-xs-9">
+  <div class="row" style="margin-top:40px;">
+    <div class="col-xs-9">
 
-	  <table class="table">
-	  <tr>
+     <table class="table">
+       <tr>
         <th>商品名</th>
         <th>単価（税込）</th>
         <th>数量</th>
         <th>小計</th>
-        <th>注文ステータス</th>
+        <th>製作ステータス</th>
         <th></th>
       </tr>
-      <%  @order_items.each do |f| %>
+        <%= form_for @order,url: admin_order_item_path(order_item.id) do |f| %>
+      <%  @order_items.each do |order_item| %>
+      <%= order_item.order.id%>
       <tr>
-        <td style="width:150px"><%= f.item.item_name %></td>
-        <td style="width:100px"><%= f.items_tax_included_price %></td>
-        <td style="width:100px"><%= f.number_of_items %></td>
-        <td style="width:100px"><%= (f.items_tax_included_price*f.number_of_items) %> </td>
-         <%= form_for(f, url:admin_items_path,method: :update) do |f| %>
+        <td style="width:150px"><%= order_item.item.item_name %></td>
+        <td style="width:100px"><%= order_item.items_tax_included_price %></td>
+        <td style="width:100px"><%= order_item.number_of_items %></td>
+        <td style="width:100px"><%= (order_item.items_tax_included_price*order_item.number_of_items) %> </td>
         <td style="width:150px"><%= f.select :making_status,["着手不可","製作待ち","製作中","製作完了"] %></td>
         <td><%= f.submit "更新" ,class:"btn btn-primary btn-xs" %></td>
-        <% end %>
-      </tr>
       <% end %>
+      </tr>
+   <% end %>
     </table>
-</div>
-<div class="col-xs-3">
-	<br><br><br><br><br><br><br>
-	<p>商品合計     7,150円</p>
-	<p>送料　　　    800円</p>
-	<p>請求金額合計　7,950円</p>
-</div>
-</div>
+  </div>
+
+  <div class="col-xs-3">
+   <br><br><br><br><br><br><br>
+   <p>商品合計     <%= @order.total_fee %>円</p>
+   <p>送料　　　    <%= @order.postage %>円</p>
+   <p>請求金額合計　<%= (@order.total_fee+@order.postage) %>円</p>
+  </div>
+ </div>
 </div>

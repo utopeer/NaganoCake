@@ -1,11 +1,16 @@
 <div class="container">
 	<h2>注文情報入力</h2>
-	<h4>支払い方法</h4>
-   <div>
-	<input type="radio" name="gender" value="male" style="margin-bottom: 10px;">クレジットカード<br>
-    <input type="radio" name="gender" value="male" >銀行振込<br>
-  </div>
+<%= form_for @order, url: public_orders_confirm_path do |f| %>
+        <div class="field row">
+          <lavel>支払い方法</lavel>
+          <!-- ラジオボタンの記述 -->
+          <label><%= f.radio_button :payment_method, "クレジットカード" ,checked: "checked"%> クレジットカード </label>
+          <label><%= f.radio_button :payment_method, "銀行振込" %> 銀行振込</label>
+          <%= f.submit "追加", class: "btn btn-primary" %>
+         </div>
     <h4>お届け先</h4>
+      <br>
+  </div>
     <div>
     <input type="radio" name="gender" value="male">ご自身の住所
     -----------------------------------------名前<br><br>
