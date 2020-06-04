@@ -40,7 +40,6 @@
         <th>製作ステータス</th>
         <th></th>
       </tr>
-        <%= form_for @order,url: admin_order_item_path(order_item.id) do |f| %>
       <%  @order_items.each do |order_item| %>
       <%= order_item.order.id%>
       <tr>
@@ -48,6 +47,7 @@
         <td style="width:100px"><%= order_item.items_tax_included_price %></td>
         <td style="width:100px"><%= order_item.number_of_items %></td>
         <td style="width:100px"><%= (order_item.items_tax_included_price*order_item.number_of_items) %> </td>
+        <%= form_for order_item,url: admin_order_item_path(order_item) do |f| %>
         <td style="width:150px"><%= f.select :making_status,["着手不可","製作待ち","製作中","製作完了"] %></td>
         <td><%= f.submit "更新" ,class:"btn btn-primary btn-xs" %></td>
       <% end %>
