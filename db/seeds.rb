@@ -42,6 +42,8 @@ Genre.create!(
  ]
 )
 
+
+
 # 商品
 Item.create!(
  [
@@ -83,10 +85,11 @@ Item.create!(
  ]
 )
 #注文
+9.times do |n|
 Order.create!(
 [
 	{
-	   member_id:1,
+	   member_id: "#{n+1}",
        postage: 800,
        payment_method: 0,
        address: "神奈川県横浜市中区山手町37",
@@ -117,6 +120,7 @@ Order.create!(
 	}
 ]
 )
+end
 
 OrderItem.create!(
 [
@@ -140,6 +144,23 @@ OrderItem.create!(
     items_tax_included_price: 15022,
     number_of_items: 156550,
     making_status: 0,
+	}
+]
+)
+
+
+CartItem.create!(
+[
+  {
+	member_id: "2",
+	item_id: "1",
+	number_of_items: "2",
+	},
+
+  {
+	member_id: "2",
+	item_id: "2",
+	number_of_items: "2",
 	}
 ]
 )
