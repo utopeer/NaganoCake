@@ -28,13 +28,13 @@ Rails.application.routes.draw do
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
 
-    get '/orders/confirm' => 'orders#confirm'
+    post '/orders/confirm' => 'orders#confirm'
 
     get '/orders/thanks' => 'orders#thanks'
     patch '/members/withdrawal' => 'members#destroy'
     get '/members/withdrawal' => 'members#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]
     resource :members, only:[:show ,:edit,:update]
-    resources :addresses
+    resources :addresses, only:[:index, :edit, :destroy, :create, :update]
   end
 end

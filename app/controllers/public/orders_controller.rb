@@ -38,7 +38,7 @@ end
   def create
     #  @order = Order.new(session[:order])
     # @order =  order_params
-    redirect_to public_orders_123456_thanks_path
+    redirect_to public_orders_thanks_path
      # @order.save
   end
 
