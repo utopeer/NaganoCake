@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords:     'members/passwords',
     registrations: 'members/registrations'
     }
-    
+
     devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
     get '/orders/confirm' => 'orders#confirm'
-    post '/orders/thanks' => 'orders#thanks'
-    patch '/members' => 'members#destroy'
+    get '/orders/thanks' => 'orders#thanks'
+    patch '/members/withdrawal' => 'members#destroy'
     get '/members/withdrawal' => 'members#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]
     resource :members, only:[:show ,:edit,:update]

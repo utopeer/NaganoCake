@@ -13,11 +13,10 @@
   </head>
 
   <body>
-    <div class="wrapper" style="min-height: 100vh; position: relative;">
+  <div id="wrapper">
      <!-- headerの記述 -->
      <header>
       <div class="container">
-
         <nav class="nav navbar-nav navbar-left">
           <%= link_to root_path do %>
           <%= image_tag "logo2.png" %>
@@ -52,15 +51,17 @@
       </div>
     </header>
 
+    <main id="content">
       <%= yield %>
+    </main>
 
-   </div>
-  </body>
-  <footer style="width: 100%; height: 80px; background-color: darkseagreen; bottom: 0; position: absolute;">
-    <div class="icons" style="text-align:center; margin-top: 30px;">
+  <footer id="footer">
+    <div class="icons" style="text-align:center; line-height: 80px;">
       <i class="fab fa-instagram-square fa-lg"></i>
       <i class="fab fa-twitter-square fa-lg" style="margin:0 20px;"></i>
       <i class="fab fa-facebook-square fa-lg"></i>
       </div>
     </footer>
+  </div>
+  </body>
 </html>
