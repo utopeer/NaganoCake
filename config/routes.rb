@@ -26,8 +26,9 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
     resources :items, only:[:index,:show,:new]
     resources :cart_items
+    post '/orders/session' => 'orders#session_create'
     get '/orders/confirm' => 'orders#confirm'
-    get '/orders/thanks' => 'orders#thanks'
+    post '/orders/thanks' => 'orders#thanks'
     patch '/members' => 'members#destroy'
     get '/members/withdrawal' => 'members#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]

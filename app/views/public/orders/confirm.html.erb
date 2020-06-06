@@ -1,5 +1,6 @@
 <div class="container">
 	<h1>注文情報確認</h1>
+	<%= form_for  @order,url: {action: 'thanks'} do |f| %>
 	<!-- テーブル -->
 	<div class="row">
 		<div class="col-xs-6">
@@ -11,18 +12,15 @@
 					<th>小計</th>
 				</tr>
 				<tbody>
+				<% @cart_items.each do |cart_item| %>
+				<% @total+=(cart_item.item.unit_price_without_tax*cart_item.number_of_items) %>
 					<tr>
-						<th>商品画像が入る +　商品名</th>
-						<td>1,100</td>
-						<td>5</td>
-						<td>単価×数量</td>
+						<td><%= cart_item.item.item_name %>
+						<td><%= (cart_item.item.unit_price_without_tax*1.1).floor %></td>
+						<td><%= cart_item.number_of_items %></td>
+						<td><%= ((cart_item.item.unit_price_without_tax*1.1).floor*cart_item.number_of_items) %></td>
 					</tr>
-					<tr>
-						<th>商品画像が入る +　商品名</th>
-						<td>1,100</td>
-						<td>5</td>
-						<td>単価×数量</td>
-					</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>
@@ -35,12 +33,12 @@
 					</tr>
 					<tbody>
 						<tr>
-							<th>小計の合計</th>
-							<td>合計　+ 送料</td>
+							<th>商品合計</th>
+							<td><%= @total%></td>
 						</tr>
 						<tr>
-							<th>小計の合計</th>
-							<td>合計　+ 送料</td>
+							<th>請求額</th>
+							<td><%= @total+800%></td>
 						</tr>
 					</tbody>
 				</table>
@@ -48,12 +46,12 @@
 		</div>
 	</div>
 	<!-- テーブル end -->
-	<p><strong>支払方法</strong> [前ページの方法を表示]</p><br>
-	<p><strong>お届け先</strong> [前ページのお届け先住所]</p><br>
+	<p><strong>支払方法 </strong><%= @order.payment_method %></p><br>
+
+	<p><strong>お届け先 </strong><%= @order.address %></p><br>
 
 	<div class="text-center">
-		<button type="button" class="btn btn-success text-center">購入を確定する</button>
+		 <%= f.submit "購入を確定する", class: "btn btn-success text-cenrer" %>
 	</div>
-
+<% end %>
 </div>
-
