@@ -17,8 +17,18 @@ class Public::MembersController < ApplicationController
   def withdrawal
   end
 
-  private
+  # ユーザーの退会（論理削除）
+  def destroy
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    current_member.update(is_deleted: true)
+    #ログアウトさせる
+    reset_session
+    redirect_to root_path
+  end
+  
+ private
   def member_params
    	params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :withdrawal_status)
   end
+
 end

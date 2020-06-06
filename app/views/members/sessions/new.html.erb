@@ -2,6 +2,7 @@
   <div class="row">
     
     <div class="col-xs-3">
+      <%= flash[:error] %>
     </div>
 
     <div class="col-xs-6">
@@ -37,11 +38,7 @@
 
       <br>
       <h4 style="width: 200px;background-color: #f0f6da; text-align: center;">登録がお済みでない方</h4>
-      <%= link_to "こちら", "/members/sign_up" %><span>から新規登録をしてください。</span>
-
-      
+      <%= link_to "こちら", "/members/sign_up" %><span>から新規登録をしてください</span>
     </div>
-
-    <div class="col-xs-3"></div>
   </div>
 </div>
