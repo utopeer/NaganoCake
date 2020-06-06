@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-
+before_action :authenticate_member!
     def index
     	@cart_items = current_member.cart_items
     	@total = 0
@@ -35,5 +35,7 @@ class Public::CartItemsController < ApplicationController
 	def cart_item_params
 		params.require(:cart_item).permit(:item_id, :number_of_items, :member_id)
 	end
+
+
 
 end
