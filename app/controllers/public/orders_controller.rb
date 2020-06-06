@@ -1,8 +1,13 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_member!
   def index
+    @orders = current_member.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_item = @order.order_items
+    @total = 0
   end
 
   def new

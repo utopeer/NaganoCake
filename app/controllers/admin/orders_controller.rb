@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @path = Rails.application.routes.recognize_path(request.referer)
     if @path[:controller] == "admin/members" && @path[:action] == "show"
