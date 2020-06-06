@@ -4,7 +4,7 @@
       <h2>ショッピングカート</h2>
     </div>
     <div class="col-xs-2">
-      <div class="btn btn-danger">カートを空にする</div>
+      <div><%= link_to "カートを空にする", public_cart_items_destroy_all_path(@cart_items), method: :delete, class:"btn btn-danger" %></div>
     </div>
   </div>
   <div class="row">
@@ -16,39 +16,52 @@
         <th style="width:180px;">小計</th>
         <th style="width:180px;"></th>
       </tr>
+
+      
       <% @cart_items.each do |cart_item| %>
       <tr>
-        <td style="height:70px;"><div style="width:50px; height:30px; border:1px solid; float:left; margin:0 10px;"></div><p style="float:left;"><%= cart_item.item.item_name %></p></td>
-        <td><%= cart_item.item.unit_price_without_tax %></td>
-        <td><div style="border: 1px solid; width: 30px; height: 35px; margin-left:20px; float:left;"><%= cart_item.number_of_items %></div>
-            <div class="btn btn-primary" style="float:left; margin-left:20px;">変更</div>
+        <td style="height:70px;"><p style="float:left;">
+          <%= attachment_image_tag cart_item.item, :image, size: "40x30", fallback: "no_image.jpg"%><%= cart_item.item.item_name %>
+          </p>
         </td>
-        <td>1,100</td>
-        <td><div class="btn btn-danger" style="margin-left:50px;">削除する</div></td>
+        <td><%= (cart_item.item.unit_price_without_tax*1.1).floor %></td>
+        <td>
+              <%= form_for cart_item, url: public_cart_item_path(cart_item) do |f| %>
+              <%= f.number_field :number_of_items, min:1, max: 20 %>　　<%= f.submit "更新" ,class:"btn btn-primary btn-xs" %>
+              <% end %>
+        </td>
+        <td><%= ((cart_item.item.unit_price_without_tax*1.1).floor*cart_item.number_of_items) %>
+            <% @total += ((cart_item.item.unit_price_without_tax*1.1).floor*cart_item.number_of_items) %>
+            <!--each文の小計を@totalに代入している。代入演算子。コントローラーで@totalを宣言している。-->
+        </td>
+        <td><div style="margin-left:50px;">
+          <%= link_to "Destroy", public_cart_item_path(cart_item), method: :delete, class:"btn btn-danger" %>
+            </div>
+        </td>
       </tr>
       <% end %>
     </table>
+   
 
   </div>
   <div="row">
     <div class="col-xs-9">
-      <div class="btn btn-primary" style="margin-top:50px;">買い物を続ける</div>
+      <div style="margin-top:50px;"><%= link_to "買い物を続ける", public_items_path, class:"btn btn-primary" %></div>
     </div>
     <div class="col-xs-3">
       <div style="margin-top:50px; text-align:center;">
         <div style="width:125px; height:60px; border: 1px solid; float:left; padding:20px;">合計金額</div>
-        <div style="width:125px; height:60px; border: 1px solid; float:left; padding:20px;">1,760</div>
+        <div style="width:125px; height:60px; border: 1px solid; float:left; padding:20px;"><%= @total %></div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-4"></div>
     <div class="col-xs-4">
-      <div class="btn btn-success btn-lg" style="width: 250px;">情報入力に進む</div>
+      <div class="btn btn-success btn-lg" style="width: 250px;"><%= link_to "情報入力に進む", public_items_path %></div>
     </div>
     <div class="col-xs-4"></div>
   </div>
 
 </div>
 
-     
