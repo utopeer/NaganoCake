@@ -53,6 +53,7 @@ Item.create!(
 		explanation: "長野県産の山葵を生地とクリームに使ったロールケーキです。",
 		unit_price_without_tax: 1000,
 		sale_status: 0
+		
 	},
 	{
 		genre_id: 1,
@@ -153,6 +154,18 @@ CartItem.create!(
 [
   {
 	member_id: "1",
+	item_id: "1",
+	number_of_items: "2",
+	},
+
+  {
+	member_id: "1",
+	item_id: "2",
+	number_of_items: "2",
+	},
+	
+	{
+	member_id: "2",
 	item_id: "1",
 	number_of_items: "2",
 	},

@@ -6,7 +6,6 @@
   	  <div class="row" style="margin-top: 50px;">
   	  	<div style="float: left; margin: 15px 50px;">
           <%= attachment_image_tag @item, :image, size: "300x200", fallback: "no_image.jpg" %>
-            
         </div>
   	  	<div style="width:400px; height:300px; float:left;">
   	  	  <h2><%= @item.item_name %></h2>
@@ -14,12 +13,16 @@
   	  	  <h3>¥<%= (@item.unit_price_without_tax*1.1).floor %><span style="font-size:12px;">（税込）</span></h3>
   	  	</div>
   	  </div>
-  	  <div class="row">
-  	  	<div class="col-xs-7"></div>
-  	  	<div class="col-xs-5">
-  	  	  <div style="border-radius: 5px; width: 120px; height: 25px; border:1px solid; float:left; margin-top:5px; margin-right:20px;">　個数選択　▼</div>
-  	  	  <div class="btn btn-primary" style="float:left;">カートに入れる</div>
-  	  	</div>
+        <!-- ここにログインしてる時しか表示しないifを書く -->
+        <div class="col-xs-7"></div>
+        <div class="col-xs-5">
+          <%= form_for @cart_item, url: public_cart_items_path(@cart_item) do |f| %>
+            <%= f.hidden_field :item_id , :value => @item.id %>
+            <%= f.number_field :number_of_items ,placeholder: "個数選択",min: 1 %> <!-- f.selectでも可。placeholderで空欄時に個数選択を表示。選択数の最低値を設定するためにminを設定。 -->
+            <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
+          <% end %>
+        <!-- end -->
+      </div>
   	  </div>
 
   	</div>
