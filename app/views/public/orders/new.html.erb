@@ -1,5 +1,6 @@
 <div class="container">
 	<h2>注文情報入力</h2>
+
   <%= form_with(model: @order,local: true, url: {action: 'confirm' }) do |f| %>
   <div class="field row" style="margin-left:20px; ">
     <h4><strong>支払い方法</strong></h4>
@@ -39,8 +40,9 @@
         <%= f.text_field :shipping_address ,size: "60" %><br><br>
         <%= f.text_field :name %><br><br>
        <%= f.submit "確認画面に進む", class: "btn btn-primary text-cenrer" %>
+
       </div>
-    </div>
+      <!-- end -->
     <% end %>
   </div>
 </div>

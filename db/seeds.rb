@@ -21,8 +21,8 @@ Member.create!(
 	last_name_kana: "member#{n+1}",
 	first_name_kana: "member#{n+1}",
 	postal_code: "1234567",
-	address: "1234567",
-	phone_number: "110",
+	address: "東京都渋谷区神宮前三丁目",
+	phone_number: "09012345678",
 	password: "members",
 	password_confirmation: "members"
 	)
@@ -38,7 +38,15 @@ Genre.create!(
 	{
 		name: "焼き菓子",
 		valid_invalid_status: 0
-	}
+	},
+  {
+    name: "キャンディー",
+    valid_invalid_status: 0
+  },
+  {
+    name: "プリン",
+    valid_invalid_status: 0
+  }
  ]
 )
 
@@ -53,7 +61,6 @@ Item.create!(
 		explanation: "長野県産の山葵を生地とクリームに使ったロールケーキです。",
 		unit_price_without_tax: 1000,
 		sale_status: 0
-		
 	},
 	{
 		genre_id: 1,
@@ -82,9 +89,38 @@ Item.create!(
 		explanation: "長野県産のそば粉で作った甘さ控え目の和風クッキーです。",
 		unit_price_without_tax: 1000,
 		sale_status: 0
-	}
+	},
+  {
+    genre_id: 4,
+    item_name: "キャラメルプリン",
+    explanation: "国産の生クリームを煮詰めてつくったクリーミーで香ばしい生キャラメルの味わい。隠し味にフランスのロレーヌ産の岩塩を使って甘さを引き立たせた。素材選びにこだわってとろりとした食感を実現しているという。人工甘味料や保存料は使っていない。",
+    unit_price_without_tax: 1000,
+    sale_status: 0
+  },
+  {
+    genre_id: 2,
+    item_name: "チョコレートケーキ",
+    explanation: "しっとり甘いショコラスポンジに濃厚なチョコレートのクリームをサンド、底部にパリっと食感のチョコレートを塗った、チョコ好きに贈る贅沢な一品です。",
+    unit_price_without_tax: 1000,
+    sale_status: 0
+  },
+  {
+    genre_id: 3,
+    item_name: "りんごキャンディー",
+    explanation: "長野県産のりんごを使った飴です。",
+    unit_price_without_tax: 500,
+    sale_status: 0
+  },
+  {
+    genre_id: 3,
+    item_name: "山葵キャンディー",
+    explanation: "長野県安曇野市で採れた山葵を使った、刺激的なキャンディーです。",
+    unit_price_without_tax: 1000,
+    sale_status: 0
+  }
  ]
 )
+
 #注文
 9.times do |n|
 Order.create!(
@@ -99,30 +135,11 @@ Order.create!(
        total_fee: 1245677895,
        order_status: 0,
 	},
-	{
-	   member_id:1,
-       postage: 800,
-       payment_method: 0,
-       address: "神奈川県横浜市中区山手町37",
-       postal_code: 2318651,
-       name: "東京都新宿区東新宿1丁目",
-       total_fee: 1245677895,
-       order_status: 0,
-	},
-	{
-	   member_id:1,
-       postage: 800,
-       payment_method: 0,
-       address: "神奈川県横浜市中区山手町37",
-       postal_code: 2318651,
-       name: "東京都新宿区東新宿1丁目",
-       total_fee: 1245677895,
-       order_status: 0,
-	}
 ]
 )
 end
 
+# 注文履歴
 OrderItem.create!(
 [
 	{
@@ -149,34 +166,6 @@ OrderItem.create!(
 ]
 )
 
-
-CartItem.create!(
-[
-  {
-	member_id: "1",
-	item_id: "1",
-	number_of_items: "2",
-	},
-
-  {
-	member_id: "1",
-	item_id: "2",
-	number_of_items: "2",
-	},
-	
-	{
-	member_id: "2",
-	item_id: "1",
-	number_of_items: "2",
-	},
-
-  {
-	member_id: "1",
-	item_id: "2",
-	number_of_items: "2",
-	}
-]
-)
 # 配送先
 Address.create!(
 	[

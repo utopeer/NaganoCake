@@ -16,8 +16,11 @@
         <!-- ここにログインしてる時しか表示しないifを書く -->
         <div class="col-xs-7"></div>
         <div class="col-xs-5">
+
           <%= form_for @cart_item, url: public_cart_items_path(@cart_item) do |f| %>
             <%= f.hidden_field :item_id  , :value => @item.id%>
+
+
             <%= f.number_field :number_of_items ,placeholder: "個数選択",min: 1 %> <!-- f.selectでも可。placeholderで空欄時に個数選択を表示。選択数の最低値を設定するためにminを設定。 -->
             <%= f.submit "カートに入れる" ,class: 'btn btn-primary' %>
           <% end %>
