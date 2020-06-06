@@ -27,7 +27,9 @@ Rails.application.routes.draw do
     resources :items, only:[:index,:show,:new]
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
+
     get '/orders/confirm' => 'orders#confirm'
+
     get '/orders/thanks' => 'orders#thanks'
     patch '/members/withdrawal' => 'members#destroy'
     get '/members/withdrawal' => 'members#withdrawal'

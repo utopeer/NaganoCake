@@ -33,7 +33,11 @@ before_action :authenticate_member!
 
 	private
 	def cart_item_params
-		params.require(:cart_item).permit(:item_id, :number_of_items, :member_id)
+
+		params.require(:cart_item).permit(:item_id, :number_of_items,:member_id)
+
+
+
 	end
 
 
