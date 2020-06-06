@@ -152,15 +152,32 @@ OrderItem.create!(
 CartItem.create!(
 [
   {
-	member_id: "2",
+	member_id: "1",
 	item_id: "1",
 	number_of_items: "2",
 	},
 
   {
-	member_id: "2",
+	member_id: "1",
 	item_id: "2",
 	number_of_items: "2",
 	}
+]
+)
+# 配送先
+Address.create!(
+	[
+		{
+     name: "山田 菊",
+     member_id: 1,
+     shipping_address: "東京都新宿区東新宿5丁目",
+     postal_code: 184587,
+},
+{
+     name: "山田 百合",
+     member_id: 1,
+     shipping_address: "東京都新宿区東新宿9丁目",
+     postal_code: 959597,
+}
 ]
 )
