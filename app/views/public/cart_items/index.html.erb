@@ -17,11 +17,10 @@
         <th style="width:180px;"></th>
       </tr>
 
-      
       <% @cart_items.each do |cart_item| %>
       <tr>
         <td style="height:70px;"><p style="float:left;">
-          <%= attachment_image_tag cart_item.item, :image, size: "40x30", fallback: "no_image.jpg"%><%= cart_item.item.item_name %>
+          <%= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg"%><%= cart_item.item.item_name %>
           </p>
         </td>
         <td><%= (cart_item.item.unit_price_without_tax*1.1).floor %></td>
@@ -32,7 +31,7 @@
         </td>
         <td><%= ((cart_item.item.unit_price_without_tax*1.1).floor*cart_item.number_of_items) %>
             <% @total += ((cart_item.item.unit_price_without_tax*1.1).floor*cart_item.number_of_items) %>
-            <!--each文の小計を@totalに代入している。代入演算子。コントローラーで@totalを宣言している。-->
+            <!--each文の小計を@totalに代入 => 代入演算子。コントローラーで@totalに整数利用できるよう初期値0を設定している。-->
         </td>
         <td><div style="margin-left:50px;">
           <%= link_to "Destroy", public_cart_item_path(cart_item), method: :delete, class:"btn btn-danger" %>
@@ -41,12 +40,11 @@
       </tr>
       <% end %>
     </table>
-   
 
   </div>
   <div="row">
     <div class="col-xs-9">
-      <div style="margin-top:50px;"><%= link_to "買い物を続ける", public_items_path, class:"btn btn-primary" %></div>
+      <div style="margin-top:50px;"><%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %></div>
     </div>
     <div class="col-xs-3">
       <div style="margin-top:50px; text-align:center;">

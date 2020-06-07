@@ -47,7 +47,7 @@
 					</table>
 				</div>
 			</div>
-		</div>
+		</div><br>
 		<!-- テーブル end -->
 		<p><strong>支払方法 </strong><%= @order.payment_method %></p><br>
 
@@ -56,9 +56,9 @@
 		<%= f.hidden_field :address,:value => @order.address %>
 		<%= f.hidden_field :postal_code,:value => @order.postal_code %>
 		<%= f.hidden_field :name,:value => @order.name %>
-		<%= f.hidden_field :total_fee ,:value => @total+800 %>
+		<%= f.hidden_field :total_fee ,:value => @total+800 %><br><br>
 		<div class="text-center">
-			<%= f.submit "購入を確定する", class: "btn btn-success text-cenrer" %>
+			<%= f.submit "購入を確定する", class: "btn btn-success text-cenrer btn-lg" %>
 		</div>
 		<% end %>
 	</div>
