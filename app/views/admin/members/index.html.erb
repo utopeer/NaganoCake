@@ -17,14 +17,17 @@
         </tr>
       </thead>
         <tbody>
+          <% @members.each do |member| %>
           <tr>
-            <td>1</td>
-            <td>長野景気</td>
-            <td>hoge@example.com</td>
-            <td>有効</td>
+            <td><%= member.id %></td>
+            <td><%= member.last_name %><%= member.first_name %></td>
+            <td><%= member.email %></td>
+            <td><%= member.withdrawal_status %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
+      <%= paginate @members %>
     </div>
 
     <div class="col-xs-2"></div>

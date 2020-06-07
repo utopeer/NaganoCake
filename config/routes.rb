@@ -33,6 +33,6 @@ Rails.application.routes.draw do
     get '/members/withdrawal' => 'members#withdrawal'
     resources :orders, only:[:new,:create,:index,:show]
     resource :members, only:[:show ,:edit,:update]
-    resources :addresses
+    resources :addresses, only:[:index, :edit, :destroy, :create, :update]
   end
 end
