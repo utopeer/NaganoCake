@@ -46,6 +46,11 @@ header {
 	width: 550px;
 }
 
+img {
+  object-fit: cover; /* この一行を追加するだけ！ */
+}
+
+
 .image1 {
 background-image: url(image1.jpg);
 }
@@ -281,3 +286,5 @@ $orchid        : #ae31d9;
   display: flex;
   margin-left:40%;
 }
+
+
