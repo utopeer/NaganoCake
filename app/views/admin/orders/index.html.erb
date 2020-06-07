@@ -6,6 +6,7 @@
         <th>購入者</th>
 
         <th>注文ステータス</th>
+        <th></th>
       </tr>
       <% @order.each do |order| %>
       <tr>
@@ -13,6 +14,7 @@
         <td><%= order.member.last_name %></td>
 
         <td><%= order.order_status %></td>
+        <td><%= link_to "注文詳細", admin_order_path(order), class:"btn btn-primary" %></td>
       </tr>
     <% end %>
     </table>

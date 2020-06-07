@@ -1,14 +1,23 @@
 <div class="container">
 	<h2>配送先登録/一覧</h2>
-    <p>郵便番号(ハイフンなし)
-        <input type="text" name="posy_code"></p>
-    </p>
-    <p>住所
-     <input type="text" name="address">
- </p>
- <p>宛名
-     <input type="text" name="name"></p>
-     <%= button_to "登録する",public_addresses_path,method: :patch ,class: "btn btn-success" %><br>
+
+    <%= form_for @address, url:public_addresses_path, method: :post do |f| %>
+      <div class="field">
+        <%= f.label :郵便番号 %><br />
+        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+      </div>
+      <div class="field">
+        <%= f.label :住所 %><br />
+        <%= f.text_field :shipping_address, autofocus: true, autocomplete: "shipping_address" %>
+      </div>
+      <div class="field">
+        <%= f.label :宛名 %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+      <div class="field">
+      <%= f.submit "登録する", class:"btn btn-primary" %>
+      </div>
+      <% end %>
 
      <table  class="table table-bordered">
         <tr>
@@ -17,28 +26,19 @@
             <td>宛名</td>
             <td></td>
         </tr>
+        <% @addresses.each do |address| %>
         <tr>
-            <td>1564641146</td>
-            <th>member.address</th>
-            <th>name</th>
+            <td><%= address.postal_code %></td>
+            <th><%= address.shipping_address %></th>
+            <th><%= address.name %></th>
             <th>
                <div style="display:inline-flex">
-                <%=button_to "編集する","#",method: :get , class: "btn btn-primary" %>
+                <%=button_to "編集する", edit_public_address_path(address),method: :get , class: "btn btn-primary" %>
                 <!--id必要  edit_public_address_path-->
-                <%=button_to "削除する","#",method: :delete , class: "btn btn-danger" %>
+                <%=button_to "削除する", public_address_path(address), method: :delete , class: "btn btn-danger" %>
                 <!-- pathにid必要 public_address_path-->
-            </div>
-        </th>
-         <tr>
-            <td>1564641146</td>
-            <th>member.address</th>
-            <th>name</th>
-            <th>
-               <div style="display:inline-flex">
-                <%=button_to "編集する","#",method: :get , class: "btn btn-primary" %>
-                <!--id必要  edit_public_address_path-->
-                <%=button_to "削除する","#",method: :delete , class: "btn btn-danger" %>
-                <!-- pathにid必要 public_address_path-->
-            </div>
-        </th>
+               </div>
+            </th>
+        </tr>
+        <% end %>
 </div>

@@ -162,6 +162,27 @@ OrderItem.create!(
     items_tax_included_price: 15022,
     number_of_items: 156550,
     making_status: 0,
+	},
+	{
+    order_id:2,
+    item_id:1,
+    items_tax_included_price: 50,
+    number_of_items: 156,
+    making_status: 0,
+	},
+	{
+    order_id:2,
+    item_id:1,
+    items_tax_included_price: 150,
+    number_of_items: 1560,
+    making_status: 0,
+	},
+	{
+    order_id:2,
+    item_id:2,
+    items_tax_included_price: 15022,
+    number_of_items: 156550,
+    making_status: 0,
 	}
 ]
 )
@@ -177,7 +198,7 @@ Address.create!(
 },
 {
      name: "山田 百合",
-     member_id: 1,
+     member_id: 2,
      shipping_address: "東京都新宿区東新宿9丁目",
      postal_code: 959597,
 }
