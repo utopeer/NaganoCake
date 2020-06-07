@@ -10,7 +10,7 @@
       </tr>
       <tr>
         <th style="width:200px">配送先</th>
-        <td style="height:60px;"><%= @order.name %><br><%= @order.member.last_name %> <%= @order.member.first_name %></td>
+        <td style="height:60px;">〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></td>
       </tr>
       <tr>
         <th style="width:200px">支払い方法</th>

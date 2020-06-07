@@ -3,39 +3,42 @@
 
 	 <%= form_for(@member, url:admin_member_path) do |f| %>
       <form>
-      
+
       <div class="field">
-        <%= f.label :会員ID %><br />
+        <%= f.label :会員ID %><br>
         <%= f.text_field :id, autofocus: true, autocomplete: "id" %>
       </div>
+
       <div class="field">
-        <%= f.label :氏名 %><br />
+        <%= f.label :氏名 %><br>
         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
       </div>
+
       <div class="field">
-        <%= f.label :フリガナ %><br />
+        <%= f.label :フリガナ %><br>
         <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
         <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
       </div>
+
       <div class="field">
-      <%= f.label :郵便番号 %><br />
+      <%= f.label :郵便番号 %><br>
       <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
       </div>
+
       <div class="field">
-      <%= f.label :電話番号 %><br />
+      <%= f.label :電話番号 %><br>
       <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
       </div>
+
       <div class="field">
-      <%= f.label :メールアドレス %><br />
+      <%= f.label :メールアドレス %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
           <!-- ラジオボタンの記述 -->
       <div class="field">
           <label><%= f.radio_button :withdrawal_status, "有効" ,checked: "checked"%> 有効会員 </label>
-          <label><%= f.radio_button :withdrawal_status, "無効" %> 退会済み</label>　
+          <label><%= f.radio_button :withdrawal_status, "無効" %> 退会済み</label>
       </div>
         <%= f.submit "変更を保存する", class:"btn btn-primary" %>
       <% end %>
-    
-      
