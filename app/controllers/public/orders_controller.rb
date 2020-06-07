@@ -36,6 +36,10 @@ class Public::OrdersController < ApplicationController
     @order.postal_code =@address.postal_code
     @order.name = @address.name
     @order.address = @address.shipping_address
+
+    order_item = order_item.id @order.id
+    byebug
+
   end
     @cart_items = CartItem.where(member_id: current_member.id)
     @total = 0
@@ -48,6 +52,16 @@ end
      @order = Order.new(order_params)
      @order.member_id = current_member.id
      @order.save
+#order_itmemの保存
+    current_member.cart_items.each do |cart_item|
+    @order_item = OrderItem.new
+    @order_item.item_id = cart_item.item_id
+    @order_item.number_of_items = cart_item.number_of_items
+    @order_item.items_tax_included_price = cart_item.number_of_items*1.1
+    @order_item.order_id =  @order.id
+    @order_item.save
+   end
+#
       # @order_items = OrderItem.where(order_id: @order.id)
       current_member.cart_items.destroy_all
      redirect_to public_orders_thanks_path
