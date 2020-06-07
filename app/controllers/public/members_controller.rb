@@ -20,7 +20,7 @@ class Public::MembersController < ApplicationController
   # ユーザーの退会（論理削除）
   def destroy
     #is_deletedカラムにフラグを立てる(defaultはfalse)
-    current_member.update(is_deleted: true)
+    current_member.update(is_deleted: true, withdrawal_status: 1)
     #ログアウトさせる
     reset_session
     redirect_to root_path
