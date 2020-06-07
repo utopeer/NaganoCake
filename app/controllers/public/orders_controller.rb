@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @addresses = Address.all
+    @address = Address.new
   end
 
   def confirm
@@ -23,23 +23,35 @@ class Public::OrdersController < ApplicationController
     @order.address = current_member.address
     @order.name = current_member.last_name+current_member.first_name
   elsif  params[:order][:address_number] ==  "2"
-    @order.address = Address.find(id: :address)
-byebug
+    @order.postal_code = Address.find(params[:order][:address]).postal_code
+    @order.address = Address.find(params[:order][:address]).shipping_address
+    @order.name = Address.find(params[:order][:address]).name
+  elsif params[:order][:address_number] ==  "3"
+    @address = Address.new()
+    @address.shipping_address = params[:order][:shipping_address]
+     @address.name = params[:order][:name]
+     @address.postal_code = params[:order][:postal_code]
+    @address.member_id = current_member.id
+    @address.save
+    @order.postal_code =@address.postal_code
+    @order.name = @address.name
+    @order.address = @address.shipping_address
+    byebug
   end
-
     @cart_items = CartItem.where(member_id: current_member.id)
     @total = 0
-
 end
 
 
   def thanks
   end
   def create
-    #  @order = Order.new(session[:order])
-    # @order =  order_params
-    redirect_to public_orders_thanks_path
-     # @order.save
+     @order = Order.new(order_params)
+     @order.member_id = current_member.id
+     @order.save
+      # @order_items = OrderItem.where(order_id: @order.id)
+      current_member.cart_items.destroy_all
+     redirect_to public_orders_thanks_path
   end
 
  private
@@ -48,6 +60,10 @@ end
     params.require(:order).permit(:payment_method, :address,:postage,:postal_code,:name,:total_fee,:addre
       )
   end
+
+  def address_params
+     params.permit(:shipping_address,:name,:postal_code,:member_id)
+end
   # :name,:postal_code,
 end
 
