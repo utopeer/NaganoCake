@@ -1,7 +1,7 @@
 <div class="container">
 	<h4>マイページ</h4>
 	<p><strong>登録情報</strong><%= link_to "編集する", edit_public_members_path(@member.id), class:"btn btn-primary" %>
-		<button type="button" class="btn btn-primary"> パスワードを変更する</button></p>
+		<%= link_to "パスワードを変更する", edit_member_registration_path, class:"btn btn-primary" %></p>
 		<div class="row">
 			<div class="col-xs-6">
 				<table class="table table-bordered">

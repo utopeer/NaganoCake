@@ -36,7 +36,6 @@ class Public::OrdersController < ApplicationController
     @order.postal_code =@address.postal_code
     @order.name = @address.name
     @order.address = @address.shipping_address
-    byebug
   end
     @cart_items = CartItem.where(member_id: current_member.id)
     @total = 0
