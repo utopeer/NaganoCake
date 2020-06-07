@@ -4,7 +4,6 @@ class Admin::OrderItemsController < ApplicationController
 	def update
 		@order_item = OrderItem.find(params[:id]) #　特定
 		@order = @order_item.order #注文商品から注文テーブルの呼び出し（何度も呼び出すのは処理が増える為）
-		# @order_items = OrderItem.all
 		@order_item.update(order_item_params) #　製作ステータスの更新
 		# @order_item = Order.OderItem.find(params[:id])
 		# @order_item.update(order_item_params)
