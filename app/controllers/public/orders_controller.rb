@@ -29,15 +29,14 @@ class Public::OrdersController < ApplicationController
   elsif params[:order][:address_number] ==  "3"
     @address = Address.new()
     @address.shipping_address = params[:order][:shipping_address]
-     @address.name = params[:order][:name]
-     @address.postal_code = params[:order][:postal_code]
+    @address.name = params[:order][:name]
+    @address.postal_code = params[:order][:postal_code]
     @address.member_id = current_member.id
     @address.save
     @order.postal_code =@address.postal_code
     @order.name = @address.name
     @order.address = @address.shipping_address
     order_item = order_item.id @order.id
-    byebug
   end
     @cart_items = CartItem.where(member_id: current_member.id)
     @total = 0
@@ -47,9 +46,9 @@ end
   def thanks
   end
   def create
-     @order = Order.new(order_params)
-     @order.member_id = current_member.id
-     @order.save
+    @order = Order.new(order_params)
+    @order.member_id = current_member.id
+    @order.save
 #order_itmemの保存
     current_member.cart_items.each do |cart_item|
     @order_item = OrderItem.new
@@ -59,10 +58,9 @@ end
     @order_item.order_id =  @order.id
     @order_item.save
    end
-#
-      # @order_items = OrderItem.where(order_id: @order.id)
-      current_member.cart_items.destroy_all
-     redirect_to public_orders_thanks_path
+    # @order_items = OrderItem.where(order_id: @order.id)
+    current_member.cart_items.destroy_all
+    redirect_to public_orders_thanks_path
   end
 
  private

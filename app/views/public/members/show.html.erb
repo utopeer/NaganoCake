@@ -1,36 +1,38 @@
 <div class="container">
 	<h4>マイページ</h4>
-	<p><strong>登録情報</strong><%= link_to "編集する", edit_public_members_path(@member.id), class:"btn btn-primary" %>
-		<button type="button" class="btn btn-primary"> パスワードを変更する</button></p>
+		<p><strong>登録情報</strong>　
+			<%= link_to "編集する", edit_public_members_path(@member.id), class:"btn btn-primary" %>
+			<button type="button" class="btn btn-primary"> パスワードを変更する</button>
+		</p>
 		<div class="row">
 			<div class="col-xs-6">
 				<table class="table table-bordered">
 					<tr>
 						<td>氏名</td>
-						<th><%= @member.last_name %><%= @member.first_name %></th>
+						<td><%= @member.last_name %><%= @member.first_name %></td>
 					</tr>
 					<tr>
 						<td>カナ</td>
-						<th><%= @member.last_name_kana %><%= @member.first_name_kana %></th>
+						<td><%= @member.last_name_kana %><%= @member.first_name_kana %></td>
 					</tr>
 					<tr>
 						<td>郵便番号</td>
-						<th><%= @member.postal_code %></th>
+						<td><%= @member.postal_code %></td>
 					</tr>
 					<tr>
 						<td>住所</td>
-						<th><%= @member.address %></th>
+						<td><%= @member.address %></td>
 					</tr>
 					<tr>
 						<td>電話番号</td>
-						<th><%= @member.phone_number %></th>
+						<td><%= @member.phone_number %></td>
 					</tr>
 					<tr>
 						<td>メールアドレス</td>
-						<th><%= @member.email %></th>
+						<td><%= @member.email %></td>
 					</tr>
 				</table>
-			</div>
+			</div><br><br>
 		</div>
 		<p><strong>配送先　　</strong><%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %>
 		<p><strong>注文履歴　</strong><%= link_to "一覧を見る", public_orders_path, class:"btn btn-primary" %>
