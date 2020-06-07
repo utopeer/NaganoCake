@@ -36,7 +36,6 @@ class Public::OrdersController < ApplicationController
     @order.postal_code =@address.postal_code
     @order.name = @address.name
     @order.address = @address.shipping_address
-    byebug
   end
     @cart_items = CartItem.where(member_id: current_member.id)
     @total = 0
@@ -46,12 +45,12 @@ end
   def thanks
   end
   def create
-     @order = Order.new(order_params)
-     @order.member_id = current_member.id
-     @order.save
-      # @order_items = OrderItem.where(order_id: @order.id)
-      current_member.cart_items.destroy_all
-     redirect_to public_orders_thanks_path
+    @order = Order.new(order_params)
+    @order.member_id = current_member.id
+    @order.save
+     # @order_items = OrderItem.where(order_id: @order.id)
+    current_member.cart_items.destroy_all
+    redirect_to public_orders_thanks_path
   end
 
  private
