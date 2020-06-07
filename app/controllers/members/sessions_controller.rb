@@ -25,6 +25,7 @@ class Members::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  #　退会後ログインしてきたらブロック
   before_action :reject_member, only: [:create]
 
   protected

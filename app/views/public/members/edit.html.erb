@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="height: 510px">
 	<h2>登録情報編集</h2>
     <%= form_for (@member), url:public_members_path do |f| %>
     <div class="field">
@@ -27,8 +27,6 @@
     </div>
     <%= f.submit "編集内容を保存" ,class:"btn btn-primary" %>
     <% end %>
-
-    
+    <br>
     <%=button_to "退会する", public_members_withdrawal_path, method: :get, class: "btn btn-danger" %>
- </div>
 </div>
