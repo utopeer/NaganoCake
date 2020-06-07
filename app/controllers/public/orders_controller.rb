@@ -37,7 +37,7 @@ class Public::OrdersController < ApplicationController
     @order.name = @address.name
     @order.address = @address.shipping_address
 
-    order_item = order_item.id @order.id
+
 
   end
     @cart_items = CartItem.where(member_id: current_member.id)
@@ -56,7 +56,7 @@ end
     @order_item = OrderItem.new
     @order_item.item_id = cart_item.item_id
     @order_item.number_of_items = cart_item.number_of_items
-    @order_item.items_tax_included_price = cart_item.number_of_items*1.1
+    @order_item.items_tax_included_price = cart_item.item.unit_price_without_tax*1.1
     @order_item.order_id =  @order.id
     @order_item.save
    end
