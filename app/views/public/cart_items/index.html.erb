@@ -10,7 +10,7 @@
   <div class="row">
 	  <table class="table-bordered">
 	  <tr>
-        <th style="width:430px; height:70px;">商品名</th>
+        <th id="item-name">商品名</th>
         <th style="width:180px;">単価（税込）</th>
         <th style="width:180px;">数量</th>
         <th style="width:180px;">小計</th>
@@ -19,9 +19,8 @@
 
       <% @cart_items.each do |cart_item| %>
       <tr>
-        <td style="height:70px;"><p style="float:left;">
-          <%= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg"%><%= cart_item.item.item_name %>
-          </p>
+        <td>
+            <%= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg"%><%= cart_item.item.item_name %>
         </td>
         <td><%= (cart_item.item.unit_price_without_tax*1.1).floor %></td>
         <td>
@@ -47,9 +46,9 @@
       <div style="margin-top:50px;"><%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %></div>
     </div>
     <div class="col-xs-3">
-      <div style="margin-top:50px; text-align:center;">
-        <div style="width:125px; height:60px; border: 1px solid; float:left; padding:20px;">合計金額</div>
-        <div style="width:125px; height:60px; border: 1px solid; float:left; padding:20px;"><%= @total %></div>
+      <div class="total-price-box">
+        <div class="total-price">合計金額</div>
+        <div class="total-price"><%= @total %></div>
       </div>
     </div>
   </div>

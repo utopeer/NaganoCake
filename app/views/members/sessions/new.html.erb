@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    
     <div class="col-xs-3">
       <%= flash[:error] %>
     </div>
@@ -8,7 +7,7 @@
     <div class="col-xs-6">
       <br>
       <br>
-      <h2 style="width: 460px;background-color: #f0f6da; text-align: center;">会員の方はこちらからログイン</h2>
+      <h2 style="width: 460px;">会員の方はこちらからログイン</h2>
       <br>
       <br>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -38,9 +37,8 @@
       <% end %>
 
       <br>
-      <br>
-      <h3 style="width: 300px;background-color: #f0f6da; text-align: center;">登録がお済みでない方</h3><br>
-      <%= link_to "こちら", "/members/sign_up" %><span>から新規登録をしてください</span>
+      <h3 style="width: 300px;background-color: #a6d3c8; text-align: center; color: white">登録がお済みでない方</h3>
+      <p><%= link_to "こちら", "/members/sign_up" %>から新規登録をしてください</p><br>
     </div>
   </div>
 </div>
