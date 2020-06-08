@@ -1,3 +1,43 @@
 // Place all the styles related to the admin/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*admin/items/edit*/
+
+.edit-title {
+ background-color: mediumseagreen;
+ width: 200px;
+ text-align: center;
+ color: white;
+}
+
+.edit-sukima{
+	margin-bottom: 30px;
+}
+
+/*admin/items/index*/
+
+.index-new {
+	margin-bottom: 15px;
+}
+
+.btn.btn-success.btn-circle.btn-lg{
+width: 50px;
+height: 50px;
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.33;
+border-radius: 25px;
+color: white;
+}
+
+/*admin/items/new*/
+.new-field {
+	margin-bottom:50px;
+}
+#item_genre_id ,#item_sale_status{
+	margin-top: 10px;
+}
+.fix{
+	margin-top: 20px;
+}

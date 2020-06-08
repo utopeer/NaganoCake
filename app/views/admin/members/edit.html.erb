@@ -1,12 +1,13 @@
+<div class="container takasa">
+
 <h1>山田花子さんの会員詳細</h1>
 
-
+<div class="row">
 	 <%= form_for(@member, url:admin_member_path) do |f| %>
-      <form>
-
+  <div class="col-xs-4">
       <div class="field">
-        <%= f.label :会員ID %><br>
-        <%= f.text_field :id, autofocus: true, autocomplete: "id" %>
+        <h4><%= f.label :会員ID ,class: "col-xs-3"%><br>
+        <%= f.text_field :id, autofocus: true, autocomplete: "id" ,class: "col-xs-8"%></h4>
       </div>
 
       <div class="field">
@@ -47,3 +48,5 @@
       </div>
         <%= f.submit "変更を保存する", class:"btn btn-primary" %>
       <% end %>
+    </div>
+  </div>

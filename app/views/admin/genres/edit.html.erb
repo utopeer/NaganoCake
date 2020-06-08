@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container takasa">
   <div class="row">
 
-    <div class="col-xs-5">
-      <h2>ジャンル編集</h2>
+    <div class="col-xs-9">
+      <h1>ジャンル編集</h1><br>
 
       <!-- ジャンル用form_forで記載する時削除 -->
        <%= form_for @genre, url: admin_genre_path(@genre.id) do |f| %>
@@ -11,7 +11,7 @@
           <%= f.text_field :name %>
           <!-- ラジオボタンの記述 -->
           <label><%= f.radio_button :valid_invalid_status, "有効" %> 有効 </label>
-          <label><%= f.radio_button :valid_invalid_status, "無効" %> 無効</label>　
+          <label><%= f.radio_button :valid_invalid_status, "無効" %> 無効</label>
           <%= f.submit "変更を保存する", class: "btn btn-primary" %>
          </div>
       <% end %>
