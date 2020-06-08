@@ -1,3 +1,18 @@
 // Place all the styles related to the admin/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*admin/orders/show*/
+.order-show {
+	height: 50px;
+	width:200px;
+}
+.orders-show {
+	display: flex;
+	align-items: flex-start;
+	margin: 40px 0;
+}
+
+.orders-show .total {
+	align-self: flex-end;
+}
