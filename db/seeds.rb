@@ -46,6 +46,10 @@ Genre.create!(
   {
     name: "プリン",
     valid_invalid_status: 0
+  },
+  {
+    name: "アイス",
+    valid_invalid_status: 0
   }
  ]
 )
@@ -104,7 +108,7 @@ Item.create!(
     image: open("./db/images/item_image6.jpg")
   },
   {
-    genre_id: 2,
+    genre_id: 1,
     item_name: "チョコレートケーキ",
     explanation: "しっとり甘いショコラスポンジに濃厚なチョコレートのクリームをサンド、底部にパリっと食感のチョコレートを塗った、チョコ好きに贈る贅沢な一品です。",
     unit_price_without_tax: 1000,
@@ -126,6 +130,94 @@ Item.create!(
     unit_price_without_tax: 1000,
     sale_status: 0,
     image: open("./db/images/item_image9.jpg")
+  },
+  {
+    genre_id: 4,
+    item_name: "山葵プリン",
+    explanation: "山葵のツーンとした刺激が優しい甘みを引き立てます。",
+    unit_price_without_tax: 800,
+    sale_status: 0,
+    image: open("./db/images/item_image10.jpg")
+  },
+  {
+    genre_id: 5,
+    item_name: "山葵アイス",
+    explanation: "山葵のツーンとした刺激が優しい甘みを引き立てます。",
+    unit_price_without_tax: 300,
+    sale_status: 0,
+    image: open("./db/images/item_image11.jpg")
+  },
+  {
+    genre_id: 5,
+    item_name: "りんごシャーベット",
+    explanation: "信濃ゴールドを丸ごと一個つかった贅沢なシャーベットです。",
+    unit_price_without_tax: 300,
+    sale_status: 0,
+    image: open("./db/images/item_image12.jpg")
+  },
+  {
+    genre_id: 2,
+    item_name: "アップルパイ",
+    explanation: "アルプス乙女を使用したアップルパイ。リンゴが入った生地を先に焼き、その後にカスタードを入れて2度焼きすることで、なめらかなカスタードがたっぷり入ったアップルパイに仕上がっています。",
+    unit_price_without_tax: 900,
+    sale_status: 0,
+    image: open("./db/images/item_image13.jpg")
+  },
+  {
+    genre_id: 2,
+    item_name: "アップルタルト",
+    explanation: "アルプス乙女の甘酸っぱさと香ばしいアーモンドクリームがおいしいさくさくタルト。",
+    unit_price_without_tax: 900,
+    sale_status: 0,
+    image: open("./db/images/item_image14.jpg")
+  },
+  {
+    genre_id: 2,
+    item_name: "そば粉のフィナンシェ",
+    explanation: "そばの風味とバターのこくが癖になるフィナンシェです",
+    unit_price_without_tax: 300,
+    sale_status: 0,
+    image: open("./db/images/item_image15.jpg")
+  },
+  {
+    genre_id: 2,
+    item_name: "そば粉のラスク",
+    explanation: "一口ほおばるとほのかに香るそばの風味がなんともいえないラスクです・",
+    unit_price_without_tax: 500,
+    sale_status: 0,
+    image: open("./db/images/item_image16.jpg")
+  },
+  {
+    genre_id: 1,
+    item_name: "リンゴのミルフィーユ風ムースケーキ",
+    explanation: "さくさくパイ生地と滑らかカスタードムースに甘酸っぱい紅玉がマッチしたミルフィーユ風ムースケーキです。",
+    unit_price_without_tax: 1000,
+    sale_status: 0,
+    image: open("./db/images/item_image17.jpg")
+  },
+  {
+    genre_id: 4,
+    item_name: "焼きプリン",
+    explanation: "アイスクリームのような濃厚な口溶けと、香ばしく焦がしたキャラメルのほろ苦さが魅力の焼きプリンです。",
+    unit_price_without_tax: 800,
+    sale_status: 0,
+    image: open("./db/images/item_image18.jpg")
+  },
+  {
+    genre_id: 5,
+    item_name: "お蕎麦ソフトクリーム",
+    explanation: "バニラの甘さの後にそばの風味が香るソフトクリームです。",
+    unit_price_without_tax: 300,
+    sale_status: 0,
+    image: open("./db/images/item_image19.jpg")
+  },
+  {
+    genre_id: 3,
+    item_name: "そば蜂蜜キャンディー",
+    explanation: "香ばしい蕎麦の風味が蜂蜜の甘さを引き立てるキャンディです。",
+    unit_price_without_tax: 500,
+    sale_status: 0,
+    image: open("./db/images/item_image20.jpg")
   }
  ]
 )

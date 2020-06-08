@@ -63,3 +63,12 @@ $(function(){
     });
 });
 
+$(function(){
+    $('.wasabichan').mouseover(function(){
+        $('.wasabichan').css({'opacity': '1'});
+    });
+ 
+    $('.wasabichan').mouseout(function(){
+        $('.wasabichan').css({'opacity': '0'});
+    });
+});
