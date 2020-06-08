@@ -13,9 +13,9 @@ class Public::ItemsController < ApplicationController
 
   # ジャンル検索機能
   def search
-    @items = Item.where(genre_id: params[:format]).page(params[:page]).per(8)
+    @items = Item.where(genre_id: params[:format]).page(params[:page]).per(8) # パラメーターで渡ってきたジャンルidを元に、Item内のgenre_idと完全一致する商品情報を取得している。
     @quantity = Item.count
     @genres = Genre.where(valid_invalid_status: 0)
-    render 'index'
+    render 'index' # renderを使用してviewファイルを表示したときにはactionを呼び出し処理をしているわけではないため、上記のように必要な変数を用意しておく必要がある、
   end
 end

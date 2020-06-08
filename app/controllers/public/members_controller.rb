@@ -17,7 +17,7 @@ class Public::MembersController < ApplicationController
   def withdrawal
   end
 
-  # ユーザーの退会（論理削除）
+  # ユーザーの退会（論理削除）=> "物理削除"ではないためupdateを使用している。
   def destroy
     #is_deletedカラムにフラグを立てる(defaultはfalse)
     current_member.update(is_deleted: true, withdrawal_status: 1)
