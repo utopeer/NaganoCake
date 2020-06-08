@@ -39,7 +39,9 @@ header {
  font-size: 15px;
  padding-top: 20px;
 }
-
+.takasa{
+  min-height:70vh;
+}
 
 #container{
 	height: 450px;
@@ -287,4 +289,10 @@ $orchid        : #ae31d9;
   margin-left:40%;
 }
 
+#content{
+background: image-url('favicon.ico');
+background-position: bottom;
+background-repeat:repeat-x;
+padding-top:10px;
+ }
 
