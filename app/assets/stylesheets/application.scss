@@ -39,7 +39,9 @@ header {
  font-size: 15px;
  padding-top: 20px;
 }
-
+.takasa{
+  min-height:70vh;
+}
 
 #container{
 	height: 450px;
@@ -302,6 +304,7 @@ strong {
   font-size: 20px;
 }
 
+
 img {
   object-fit: cover; /* 画像の比率修正。この一行を追加するだけ！ */
 }
@@ -327,3 +330,10 @@ img {
 }
 
 /*ここまで*/
+
+#content{
+background: image-url('favicon.ico');
+background-position: bottom;
+background-repeat:repeat-x;
+padding-top:10px;
+ }
