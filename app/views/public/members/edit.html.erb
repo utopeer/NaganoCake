@@ -1,41 +1,82 @@
 <div class="container" style="height: 510px">
 	<h2>登録情報編集</h2>
-    <%= form_for (@member), url:public_members_path do |f| %>
-    <div class="field">
-        <%= f.label :"（姓）" %>
-        <%= f.text_field :last_name %><br>
-    </div>
-    <div class="field">
-        <%= f.label :"（名）" %>
-        <%= f.text_field :first_name %><br>
-    </div>
-    <div class="field">
-        <%= f.label :"（セイ）" %>
-        <%= f.text_field :last_name_kana %><br>
-    </div>
-    <div class="field">
-        <%= f.label :"（メイ）" %>
-        <%= f.text_field :first_name_kana %><br>
-    </div>
-        <div class="field">
-        <%= f.label :"メールアドレス" %>
-        <%= f.email_field :email %><br>
-    </div>
-    <div class="field">
-        <%= f.label :"電話番号" %>
-        <%= f.text_field :phone_number %><br>
-    </div>
-    <div class="field">
-      <%= f.label :郵便番号 %>
-      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-      </div>
-    <div class="field">
-      <%= f.label :住所 %>
-      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-      </div>
 
-    <%= f.submit "編集内容を保存" ,class:"btn btn-primary" %>
-    <% end %>
-    <br>
-    <%=button_to "退会する", public_members_withdrawal_path, method: :get, class: "btn btn-danger" %>
+    <%= form_for (@member), url:public_members_path do |f| %>
+    <div class="row user_edit">
+
+      <div class="col-xs-2">
+        <%= f.label :"名前" %>　
+      </div>　　
+      <div class="col-xs-1">
+        <%= f.label :"（姓）" %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="col-xs-1">
+        <%= f.label :"（名）" %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="row user_edit">
+      <div class="col-xs-2">
+        <%= f.label :"フリガナ" %>
+      </div>
+      <div class="col-xs-1">
+        <%= f.label :"（セイ）" %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.text_field :last_name_kana %>
+      </div>
+      <div class="col-xs-1">
+        <%= f.label :"（メイ）" %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.text_field :first_name_kana %>
+      </div>
+    </div>
+    <div class="row user_edit">
+        <div class="col-xs-3">
+            <%= f.label :"メールアドレス" %>
+        </div>
+        <div class="col-xs-3">
+            <%= f.email_field :email %>
+        </div>
+    </div>
+    <div class="row user_edit">
+      <div class="col-xs-3">
+        <%= f.label :"電話番号" %>
+      </div>
+      <div class="col-xs-3">
+        <%= f.text_field :phone_number %>
+      </div>
+    </div>
+    <div class="row user_edit">
+      <div class="col-xs-3">
+        <%= f.label :郵便番号 %>
+      </div>
+      <div class="col-xs-3">
+        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+      </div>
+    </div>
+    <div class="row user_edit">
+      <div class="col-xs-3">
+        <%= f.label :住所 %>
+      </div>
+      <div class="col-xs-5">
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "50"%>
+      </div>
+    </div>
+
+    <div class="row user_edit">
+      <div class="col-xs-3">
+        <%= f.submit "編集内容を保存" ,class:"btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="col-xs-3">
+        <%=button_to "退会する", public_members_withdrawal_path, method: :get, class: "btn btn-danger" %>
+      </div>
+    </div>
 </div>

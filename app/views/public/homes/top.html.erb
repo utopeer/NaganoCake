@@ -17,8 +17,11 @@
   			</div>
   		</div>
       <!-- オススメ商品表示 -->
-  		<h3>オススメ商品</h3>
+  		<h3 class="recommendation"><i class="fas fa-crown"></i>オススメ商品<i class="fas fa-crown"></i></h3>
   		<div class="row">
+
+
+        <div id="multiple-items">
         <% @items.each do |item| %>
           <div class="recommendation-items">
             <%= link_to public_item_path(item.id) do %> <!-- 画像をクリックしたら商品詳細画面へ遷移 -->
@@ -28,6 +31,8 @@
             <p>¥<%= (item.unit_price_without_tax*1.1).floor %></p> <!-- 税込計算式/.floor => 浮動小数点数の切り捨てを行うためFloatクラスのfloorメソッドを使用 -->
           </div>
         <% end %>
+　　　　　</div>
+        </div>
       </div>
   	</div>
 

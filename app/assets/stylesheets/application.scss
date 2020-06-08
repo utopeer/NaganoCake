@@ -17,7 +17,7 @@
  @import "bootstrap";
 
 html {
-  height:100%; 
+  height:100%;
 }
 
 body{
@@ -46,9 +46,8 @@ header {
 	width: 550px;
 }
 
-img {
-  object-fit: cover; /* この一行を追加するだけ！ */
-}
+
+
 
 
 .image1 {
@@ -284,7 +283,47 @@ $orchid        : #ae31d9;
 
 .icons {
   display: flex;
-  margin-left:40%;
+  justify-content: center;
 }
 
 
+/*6/7村田が追加したところここから*/
+#multiple-items {
+  margin-left: 60px;
+}
+
+.recommendation {
+  margin-left: 290px;
+}
+
+
+
+strong {
+  font-size: 20px;
+}
+
+img {
+  object-fit: cover; /* 画像の比率修正。この一行を追加するだけ！ */
+}
+
+.mypage {
+  margin-left:20px;
+}
+
+.under_mypage {
+  margin:20px 0 0 20px;
+}
+
+.mypage_edit {
+  margin: 0 15px
+}
+
+.user_edit {
+  margin-bottom: 15px;
+}
+
+.cart_continue_to_order {
+  text-align: center;
+}
+
+/*ここまで*/

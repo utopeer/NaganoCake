@@ -41,3 +41,24 @@ $(document).ready(function () {
       hidePrevious : false
   });
 });
+
+$(document).ready(function () {
+  $("#multiple-items").slick({
+    autoplay: true,
+    infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 2,
+  });
+});
+
+$(function(){
+    $('.slick-prev').css({
+        'display': 'none'
+    });
+});
+
+$(function(){
+    $('.slick-next').css({
+        'display': 'none'
+    });
+});
