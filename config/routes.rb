@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   namespace :public do
     get '/about' => 'homes#about'
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-    resources :items, only:[:index,:show,:new]
+    resources :items, only:[:index,:show,:new] do
+        get :search, on: :collection # ジャンル検索機能用
+    end
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
     post '/orders/confirm' => 'orders#confirm'

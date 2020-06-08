@@ -10,4 +10,12 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
     @genres = Genre.where(valid_invalid_status: 0) # ジャンルの有効無効ステータスが有効のものだけ探す/除外検索
   end
+
+  # ジャンル検索機能
+  def search
+    @items = Item.where(genre_id: params[:format]).page(params[:page]).per(8)
+    @quantity = Item.count
+    @genres = Genre.where(valid_invalid_status: 0)
+    render 'index'
+  end
 end
