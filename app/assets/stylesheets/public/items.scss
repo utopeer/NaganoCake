@@ -4,4 +4,27 @@
 
 input[type="number"] {
         width: 90px;
-    }
+}
+
+h3 {
+  position: relative;
+  padding: 0.5em;
+  background: #a6d3c8;
+  width: 100%;
+  text-align: center;
+}
+
+h3::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+}
