@@ -124,7 +124,8 @@ Item.create!(
     item_name: "山葵キャンディー",
     explanation: "長野県安曇野市で採れた山葵を使った、刺激的なキャンディーです。",
     unit_price_without_tax: 1000,
-    sale_status: 0
+    sale_status: 0,
+    image: open("./db/images/item_image9.jpg")
   }
  ]
 )

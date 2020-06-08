@@ -9,8 +9,8 @@
 }
 
 .sidebar ul li:first-child {
-  height: 80px;
-  line-height: 80px;
+  height: 40px;
+  line-height: 40px;
   border-top:3px solid seagreen;
 }
 
@@ -23,6 +23,10 @@
 
 .sidebar ul li:last-child {
   border-bottom:3px solid seagreen;
+}
+
+.button:hover {
+  background-color:#FFF5EE;
 }
 
 .about-content h3 {

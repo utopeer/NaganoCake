@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params) #情報を渡している
   #分岐
     if params[:order][:address_number] == "1" #address_numberが　”1”　なら下記　ご自身の住所が選ばれたら
-　      @order.postal_code = current_member.postal_code #自身の郵便番号をorderの郵便番号に入れる
+      @order.postal_code = current_member.postal_code #自身の郵便番号をorderの郵便番号に入れる
       @order.address = current_member.address #自身の住所をorderの住所に入れる
       @order.name = current_member.last_name+current_member.first_name #自身の宛名をorderの宛名に入れる
 
