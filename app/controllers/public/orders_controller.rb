@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
 
     elsif  params[:order][:address_number] ==  "2" #address_numberが　”2”　なら下記　登録済からの選択が選ばれたら
       @order.postal_code = Address.find(params[:order][:address]).postal_code #newページで選ばれた配送先住所idから特定して郵便番号の取得代入
-      @order.address = Address.find(params[:order][:address]).shipping_address　#newページで選ばれた配送先住所idから特定して住所の取得代入
+      @order.address = Address.find(params[:order][:address]).shipping_address#newページで選ばれた配送先住所idから特定して住所の取得代入
       @order.name = Address.find(params[:order][:address]).name #newページで選ばれた配送先住所idから特定して宛名の取得代入
 
     elsif params[:order][:address_number] ==  "3" #address_numberが　”3”　なら下記　新しいお届け先が選ばれたら

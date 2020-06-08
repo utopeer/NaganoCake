@@ -8,6 +8,26 @@ before_action :authenticate_member!
 	end
 
 	def create
+	if current_member.cart_items.count >= 1
+	  if nil != current_member.cart_items.find_by(item_id: params[:cart_item][:item_id])
+		   @cart_item_u = current_member.cart_items.find_by(item_id: params[:cart_item][:item_id])
+		   @cart_item_u.number_of_items += params[:cart_item][:number_of_items].to_i
+		   @cart_item_u.update(number_of_items: @cart_item_u.number_of_items)
+		   redirect_to public_cart_items_path
+		 else
+			 	@cart_item = CartItem.new(cart_item_params)
+			@cart_item.member_id = current_member.id
+			if @cart_item.save
+				 redirect_to public_cart_items_path
+			else
+				@items = Item.where(sale_status: 0).page(params[:page]).per(8)
+		    @quantity = Item.count
+		    @genres = Genre.where(valid_invalid_status: 0)
+				render 'public/items/index'
+		end
+	end
+
+	else
 		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.member_id = current_member.id
 		if @cart_item.save
@@ -24,6 +44,7 @@ before_action :authenticate_member!
 		# @order_item.items_tax_included_price = @cart_item.item.unit_price_without_tax*1.1
 		# @order_item.save
 	end
+end
 
 	def update
 		@cart_item = CartItem.find(params[:id])
