@@ -1,19 +1,16 @@
-<div class="container" style="height:1500px;">
-<h1><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h1>
+<div class="container takasa">
+<h1><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h1><br>
 
 
 	  <table class="table">
 	  <tr>
-        <th style="width: 300px;">顧客ID</th>
-        <td><%= @member.id %> 
+        <th>顧客ID</th>
+        <td><%= @member.id %>
           <% if @member.withdrawal_status == "有効" %>
-
-          <div class="btn btn-primary">有効会員</div>
+          <div class="label label-primary">有効会員</div>
 
           <% else %>
-
-          <div class="btn btn-danger">退会済み</div>
-
+          <div class="label label-danger">退会済み</div>
           <% end %>
 
         </td>
@@ -46,5 +43,4 @@
     
     <%= link_to "編集する", edit_admin_member_path(@member), class:"btn btn-primary" %>
     <%= link_to "注文履歴一覧", admin_orders_path(@member.id), class:"btn btn-primary" %>
-  
   </div>
