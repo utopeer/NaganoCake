@@ -69,11 +69,15 @@ background-image: url(image5.jpg);
 }
 
 input[type="email"] {
-        width: 350px;
+        width: 370px;
     }
 
 input[type="password"] {
-        width: 350px;
+        width: 370px;
+}
+
+.member-address input[type="text"] {
+        width: 370px;
 }
 
 .bg_top {
@@ -116,6 +120,9 @@ input[type="password"] {
 .wf-mplus1p { font-family: "M PLUS 1p"; }
 
 
+.recommendation {
+  font-family: "M PLUS 1p";
+}
 
 .recommendation-items {
   float: left;
@@ -337,3 +344,4 @@ background-position: bottom;
 background-repeat:repeat-x;
 padding-top:10px;
  }
+

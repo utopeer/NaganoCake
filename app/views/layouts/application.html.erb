@@ -2,7 +2,7 @@
 <html>
   <head>
     <title class="text-success">NaganoCake</title>
-     
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/5c442e0d91.js" crossorigin="anonymous"></script>
@@ -31,6 +31,7 @@
               <li><%= link_to ' 商品一覧', public_items_path %></li>
               <li><%= link_to ' カート', public_cart_items_path %></li>
               <li><%= link_to ' ログアウト', destroy_member_session_path, method: :delete %></li>
+              <%= image_tag "cake.gif", :size =>'80x80' %>
             <% elsif admin_signed_in?%>
               <li><%= link_to ' 商品一覧', admin_items_path %></li>
               <li><%= link_to ' 会員一覧', admin_members_path %></li>
@@ -40,9 +41,10 @@
               <li><input name="search" placeholder="search　🔍"></li>
             <% else %>
               <li><%= link_to ' 商品一覧', public_items_path %></li>
-              <li><%= link_to ' アバウト', public_about_path %></li>
+              <li><%= link_to ' 会社情報', public_about_path %></li>
               <li><%= link_to ' 新規登録', new_member_registration_path %></li>
               <li><%= link_to ' ログイン', new_member_session_path %></li>
+              <%= image_tag "cake.gif", :size =>'80x80' %>
             <% end %>
           </ul> 
         </nav>
