@@ -3,7 +3,7 @@ class Admin::MembersController < ApplicationController
 
   # 会員一覧画面
   def index
-  	@members = Member.page(params[:page]).per(10) 
+  	@members = Member.page(params[:page]).per(10)
   end
 
   # 会員情報編集画面

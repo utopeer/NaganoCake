@@ -1,7 +1,11 @@
 class Address < ApplicationRecord
-	belongs_to :member
-	
-	# 配送先住所
+	# アソシエーション
+  belongs_to :member
+
+  # バリデーション
+  validates :postal_code, :shipping_address, :name, presence: true
+
+	# 配送先住所情報の結合
 	def address_all
     self.postal_code+" "+self.shipping_address+" "+self.name
   end
