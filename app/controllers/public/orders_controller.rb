@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_member!
+  before_action :request_post?, only: [:confirm]
 
   def index
     @orders = current_member.orders
@@ -12,6 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+
     @order = Order.new
     @address = Address.new
   end
@@ -27,9 +29,7 @@ class Public::OrdersController < ApplicationController
 
     elsif  params[:order][:address_number] ==  "2" #address_numberが　”2”　なら下記　登録済からの選択が選ばれたら
       @order.postal_code = Address.find(params[:order][:address]).postal_code #newページで選ばれた配送先住所idから特定して郵便番号の取得代入
-
       @order.address = Address.find(params[:order][:address]).shipping_address #newページで選ばれた配送先住所idから特定して住所の取得代入
-
       @order.name = Address.find(params[:order][:address]).name #newページで選ばれた配送先住所idから特定して宛名の取得代入
 
     elsif params[:order][:address_number] ==  "3" #address_numberが　”3”　なら下記　新しいお届け先が選ばれたら
@@ -38,11 +38,14 @@ class Public::OrdersController < ApplicationController
       @address.name = params[:order][:name] #newページで新しいお届け先に入力した宛名を取得代入
       @address.postal_code = params[:order][:postal_code] #newページで新しいお届け先に入力した郵便番号を取得代入
       @address.member_id = current_member.id #newページで新しいお届け先に入力したmember_idを取得代入
-      @address.save #保存
-      @order.postal_code =　@address.postal_code #上記で代入された郵便番号をorderに代入
+      if @address.save #保存
+      @order.postal_code = @address.postal_code #上記で代入された郵便番号をorderに代入
       @order.name = @address.name #上記で代入された宛名をorderに代入
       @order.address = @address.shipping_address #上記で代入された住所をorderに代入
-    end
+      else
+       render 'new'
+       end
+  end
 
     @cart_items = CartItem.where(member_id: current_member.id) #自身のカートから買った商品情報を取得代入
     @total = 0 ##変数提議　合計を計算する変数
@@ -69,22 +72,26 @@ end #ループ終わり
 
     current_member.cart_items.destroy_all #カートの中身を削除
     redirect_to public_orders_thanks_path #thanksに遷移
-  end
+
+end
 
   private
 
+  def request_post?
+    redirect_to new_public_order_path, notice: "もう一度最初から入力してください。" unless request.post?
+  end
+
   def order_params
-    params.require(:order).permit(:payment_method, :address,:postage,:postal_code,:name,:total_fee,:addre
-      )
+    params.require(:order).permit(:payment_method, :address, :postage, :postal_code, :name, :total_fee, :addre)
   end
 
   def address_params
-   params.permit(:shipping_address,:name,:postal_code,:member_id)
- end
+    params.permit(:shipping_address, :name, :postal_code, :member_id)
+  end
   # :name,:postal_code,
 end
 
-# 頭よくなればできる
+# 頭よくなればできる sessionを用いた購入確定
   # def session_create
   #   session[:order] = Order.new()
   #   session[:order] = params

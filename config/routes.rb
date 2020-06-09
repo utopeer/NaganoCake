@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :cart_items
     post '/orders/session' => 'orders#session_create'
+    get '/orders/confirm' => 'orders#confirm'
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks' => 'orders#thanks'
     patch '/members/withdrawal' => 'members#destroy'

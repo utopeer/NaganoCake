@@ -2,14 +2,14 @@
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th class="active text-center">ジャンル検索</th>
+          <th class="active text-center"><h5>ジャンル検索</h5></th>
         </tr>
       </thead>
       <tbody>
         <% genres.each do |genre| %>
           <tr>
             <!-- each文でジャンル名を取り出し、クリックした際にroutesで設定したitemsのパスを通って、itemsコントローラのsearchアクションに繋げてる。パラメーターにはクリックしたジャンルのidを渡してる。 -->
-            <td><%= link_to genre.name, search_public_items_path(genre.id), method: :get %></td>
+            <td class="underline"><i class="fas fa-caret-right"> <%= link_to genre.name, search_public_items_path(genre.id), method: :get %></i></td>
           </tr>
         <% end %>
       </tbody>
