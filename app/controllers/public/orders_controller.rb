@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
-
+    @item_random = Item.order("RANDOM()").limit(2)
     @order = Order.new
     @address = Address.new
   end
