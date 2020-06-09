@@ -1,5 +1,5 @@
 <div class="container takasa">
-  <h2>配送先住所編集</h2><br>
+  <h2><i class="fas fa-truck"></i>配送先住所編集</h2><br>
     <%= form_for @address, url:public_address_path(@address), method: :patch do |f| %>
       <div class="field address">
         <%= f.label :郵便番号 %><br />
