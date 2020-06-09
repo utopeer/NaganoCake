@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container takasa">
 	<h2>注文情報確認</h2>
 	<%= form_for  @order,url: {action: 'create'} do |f| %>
 	<!-- テーブル -->
@@ -63,4 +63,8 @@
 			<%= f.submit "購入を確定する", class: "btn btn-success text-cenrer btn-lg" %>
 		</div>
 		<% end %>
+		<%= form_for @order, url: new_public_order_path,method: :get do |f| %><!-- 入力画面に戻る用 -->
+        <%= f.hidden_field :order,:value => @order %>
+        <%= f.submit '入力画面へ戻る' ,class: "btn btn-primary" %>
+<% end %>
 	</div>
