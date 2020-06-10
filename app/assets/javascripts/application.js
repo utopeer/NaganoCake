@@ -65,10 +65,14 @@ $(function(){
 
 $(function(){
     $('.wasabichan').mouseover(function(){
-        $('.wasabichan').css({'opacity': '0.2'});
+        $('.wasabichan').css({'opacity': '1'});
     });
  
     $('.wasabichan').mouseout(function(){
+        $('.wasabichan').css({'opacity': '0'});
+    });
+     $('.wasabichan').on('click', function(){
+        $('.wasabichan2').addClass('wasabichan-on');
         $('.wasabichan').css({'opacity': '0'});
     });
 });
