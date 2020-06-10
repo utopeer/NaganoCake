@@ -65,7 +65,7 @@ $(function(){
 
 $(function(){
     $('.wasabichan').mouseover(function(){
-        $('.wasabichan').css({'opacity': '1'});
+        $('.wasabichan').css({'opacity': '0.2'});
     });
  
     $('.wasabichan').mouseout(function(){

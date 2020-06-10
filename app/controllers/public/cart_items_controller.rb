@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
 before_action :authenticate_member!
+ before_action :cart_item_item?, only: [:create]
 
   def index
     @cart_items = current_member.cart_items
@@ -65,6 +66,10 @@ end
 	end
 
 	private
+
+	def cart_item_item?
+		redirect_to public_item_path(params[:cart_item][:item_id]), notice: "個数を入力してください。" if params[:cart_item][:number_of_items].empty?
+	end
 
 	def cart_item_params
 		params.require(:cart_item).permit(:item_id, :number_of_items,:member_id)
