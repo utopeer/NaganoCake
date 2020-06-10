@@ -14,15 +14,12 @@ class Public::OrdersController < ApplicationController
 
   def new
 
-    # jsjgjgjgjg
     @i = current_member.cart_items
     @all = Item.all
     @i.each do |item|
-      @all = @all.where.not(id:  item.item_id)
-  end
-    @item_random = @all.order("RANDOM()").limit(6)
-    # lkdjkljkljdfkgj
-
+      @all = @all.where.not(id: item.item_id)
+    end
+    @item_random = @all.order("RANDOM()").limit(2)
 
     @order = Order.new
     @address = Address.new

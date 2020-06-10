@@ -51,23 +51,27 @@
       </div>
     </div>
 
-    <div class="col-xs-5" style="background-color:pink;">
-      <div class="random_item">
-
+    <div class="col-xs-5">
+      <div class="row">
+        <br><br>
+      </div>
+      <% if @i.count == 20 %>
+      
+      <% else %>
+      <div class="row">
+      <div class="random_item" style="background-color: pink;">
           <h3>よく一緒に購入される商品</h3><br>
-
-
             <% @item_random.each do |item_random| %>
 
              <%= attachment_image_tag item_random, :image, style:"margin-bottom:15px;", size: "100x100", fallback: "no_image.jpg"%>
 
              <%= item_random.item_name %>
              <%= (item_random.unit_price_without_tax*1.1).floor %>円（税込）
-             <%= link_to "商品詳細はこちら", public_order_path(item_random) %><br>
+             <%= link_to "商品詳細はこちら", public_item_path(item_random) %><br>
             <% end %>
-
       </div>
-
+      </div>
+      <% end %>
     </div>
 </div>
 
