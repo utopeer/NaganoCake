@@ -23,7 +23,7 @@
     </div><br>
 
     <div class="field member-address">
-      <%= f.label :address, "住所" %>　　　　　　　　　　　　　　　<%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      <%= f.label :address, "住所" %>　　　　　　　　　　　　　　　<%= f.text_field :address, autofocus: true, autocomplete: "address", collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %>
     </div><br>
 
       <div class="field">
