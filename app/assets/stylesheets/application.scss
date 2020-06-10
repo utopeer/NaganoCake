@@ -82,6 +82,7 @@ h2::before {
 
 
 
+
 html {
   height:100%;
 }
@@ -103,7 +104,7 @@ header {
 
  .navbar-nav li {
  font-size: 15px;
- padding-top: 20px;
+ padding-top: 15px;
 }
 .takasa{
   min-height:74vh;
@@ -411,9 +412,52 @@ background-repeat:repeat-x;
 padding-top:10px;
  }
 
+ /*wasabichan*/
+
+.wasabichan-on{
+  position: relative;         /* 位置指定 */
+  animation: anime 2s 0s infinite alternate;
+
+}
+@keyframes anime {
+ 0% {
+        left: 0;
+        opacity: 0.1;
+    }
+    50% {
+        left: 200px;
+        opacity: 0.5;
+    }
+    100% {
+        left: 400px;
+        opacity: 1;
+
+    }
+}
+
 img.wasabichan {
-  width:200px;
+  width:260px;
   height:200px;
   opacity: 0;
+  
+}
+
+img.wasabichan2 {
+  width:260px;
+  height:200px;
+  opacity: 0;
+  top: -200px;
+  margin-bottom: -100px;
+  
+}
+.icon-flex{
+  background-image: url(cart3.png);
+  width: 34px;
+  height: 34px;
+  background-size: cover;
+}
+
+.icon-count{
+    margin-left: 14px;
 }
 
