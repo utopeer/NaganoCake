@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container takasa">
   <div class="row">
 
     <div class="col-xs-3 sidebar">
       <ul type="none">
-        <li><a class="button" href="#">会社概要</a></li>
+        <li><a class="gaiyou" href="#">会社概要</a></li>
         <li><a class="button" href="#">企業理念</a></li>
         <li><a class="button" href="#">社長挨拶</a></li>
         <li><a class="button" href="#">歴史・沿革</a></li>
@@ -12,6 +12,8 @@
     </div>
 
     <div class="col-xs-9 about-content">
+      <div class="about-show about-s"><%= render "about_show"%></div>
+      <about class="about-index">
       <h2><i class="fas fa-building"></i>会社概要</h2>
       <table class="table-bordered">
       <tr>
@@ -43,6 +45,7 @@
         <td>長野県松本市山葵町３−６</td>
       </tr>
     </table><br>
+  </about>
 
     <div id="container">
     <div id="theTarget">
@@ -56,3 +59,20 @@
 
   </div>
 </div>
+<script>
+  $(function(){
+
+    $('.button').on('click', function(){
+      $('.about-index').addClass('about-s').fadeIn(1500);
+      $('.about-show').css({'opacity': '1'});
+      $('.about-show').hide().removeClass('about-s').fadeIn(1500);
+    });
+    $('.gaiyou').on('click', function(){
+      $('about-show').addClass('about-s');
+      $('.about-index').hide().removeClass('about-s').fadeIn(1500);
+      $('.about-show').css({'opacity': '0'});
+      $('.about-show').addClass('about-s');
+    });
+});
+
+</script>
