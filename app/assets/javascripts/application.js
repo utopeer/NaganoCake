@@ -64,6 +64,13 @@ $(function(){
 });
 
 $(function(){
+     $('.wasabichan').on('click', function(){
+        $('.wasabichan2').addClass('wasabichan-on');
+         $('.wasabichan').addClass('wasabichan-hiden');
+    });
+     $('.wasabichan2').on('click', function(){
+         $('.wasabichan-on').addClass('wasabichan-hiden');
+    });
     $('.wasabichan').mouseover(function(){
         $('.wasabichan').css({'opacity': '1'});
     });
@@ -71,8 +78,12 @@ $(function(){
     $('.wasabichan').mouseout(function(){
         $('.wasabichan').css({'opacity': '0'});
     });
-     $('.wasabichan').on('click', function(){
-        $('.wasabichan2').addClass('wasabichan-on');
-        $('.wasabichan').css({'opacity': '0'});
-    });
+    $(document).ready( function(){
+    $('.takasa').hide().fadeIn(1500);
+     });
 });
+
+
+
+
+
