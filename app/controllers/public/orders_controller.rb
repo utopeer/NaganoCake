@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
-
+    @member = current_member
     @i = current_member.cart_items
     @all = Item.all
     @i.each do |item|
