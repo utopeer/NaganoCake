@@ -71,6 +71,7 @@
       <div class="row">
       <div class="random_item" style="background-color: pink;">
           <h3>よく一緒に購入される商品</h3><br>
+          <div class="items" style="margin-left: 10px;">
             <% @item_random.each do |item_random| %>
 
              <%= attachment_image_tag item_random, :image, style:"margin-bottom:15px;", size: "100x100", fallback: "no_image.jpg"%>
@@ -79,6 +80,7 @@
              <%= (item_random.unit_price_without_tax*1.1).floor %>円（税込）
              <%= link_to "商品詳細はこちら", public_item_path(item_random) %><br>
             <% end %>
+          </div>
       </div>
       </div>
       <% end %>

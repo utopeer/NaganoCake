@@ -13,6 +13,13 @@
   </head>
 
   <body data-turbolinks="false">
+  <div id="loader-bg">
+  <div id="loader">
+    <%= image_tag "img-loading.gif", style:"width: 80px; height:80px;", alt:"Now Loading..." %>
+    <p>Now Loading...</p>
+  </div>
+</div>
+<div id="wrap">
   <div id="wrapper">
      <!-- headerの記述 -->
      <header>
@@ -72,6 +79,7 @@
         </a>
       </div>
     </footer>
+  </div>
   </div>
   </body>
 </html>
