@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_member!
   before_action :request_post?, only: [:confirm]
+  before_action :order_new?, only: [:new]
 
   def index
     @orders = current_member.orders
@@ -83,6 +84,10 @@ end #ループ終わり
 end
 
   private
+
+  def order_new?
+    redirect_to public_cart_items_path, notice: "カートに商品を入れてください。" if current_member.cart_items.blank?
+  end
 
   def request_post?
     redirect_to new_public_order_path, notice: "もう一度最初から入力してください。" unless request.post?
