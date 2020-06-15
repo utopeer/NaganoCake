@@ -1,4 +1,5 @@
 class Genre < ApplicationRecord
+<<<<<<< HEAD
 	# アソシエーション
   has_many :items
 
@@ -8,4 +9,6 @@ class Genre < ApplicationRecord
   # バリデーション
 	validates :name, presence: true #バリデーションname空欄禁止
 
+=======
+>>>>>>> c117f7fb2d015c8f36451339df7dc5e98104217b
 end

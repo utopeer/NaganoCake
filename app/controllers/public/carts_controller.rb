@@ -1,6 +1,10 @@
+<<<<<<< HEAD:app/controllers/public/cart_items_controller.rb
 class Public::CartItemsController < ApplicationController
 before_action :authenticate_member!
  before_action :cart_item_item?, only: [:create]
+=======
+class Public::CartsController < ApplicationController
+>>>>>>> c117f7fb2d015c8f36451339df7dc5e98104217b:app/controllers/public/carts_controller.rb
 
   def index
     @cart_items = current_member.cart_items

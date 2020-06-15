@@ -3,6 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+<<<<<<< HEAD
 
   # アソシエーション
   has_many :cart_items
@@ -31,4 +32,6 @@ class Member < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+=======
+>>>>>>> c117f7fb2d015c8f36451339df7dc5e98104217b
 end
